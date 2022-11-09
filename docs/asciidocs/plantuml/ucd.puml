@@ -1,0 +1,18 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+left to right direction
+actor "Schulinterner User" as user
+rectangle System {
+  usecase "Visualize Data with Graphs" as UC1
+  usecase "Visualize Data with numbers" as UC2
+}
+
+rectangle Sensor {
+
+}
+
+user --> UC1
+user --> UC2
+Sensor "serves Data" --> System
+@enduml
