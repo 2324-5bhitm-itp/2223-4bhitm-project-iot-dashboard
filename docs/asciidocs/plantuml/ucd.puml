@@ -1,6 +1,8 @@
 @startuml
 'https://plantuml.com/sequence-diagram
 
+'UCD 1 -------------------------
+
 left to right direction
 actor "Schulinterner User" as user
 rectangle System {
@@ -15,4 +17,42 @@ rectangle Sensor {
 user --> UC1
 user --> UC2
 Sensor "serves Data" --> System
+
+'UCD 2 -------------------------
+
+actor "Janitor" as Janitor
+rectangle System as System2 {
+  usecase "Visualize Data with Graphs" as UC12
+  usecase "Visualize Data with numbers" as UC22
+  usecase "Visualize Alarms with numbers" as UC32
+}
+
+rectangle Sensor as Sensor2 {
+
+}
+
+Janitor --> UC12
+Janitor --> UC22
+Janitor --> UC32
+Sensor2 "serves Data" --> System2
+
+'UCD 3 -------------------------
+
+actor "Administrator" as Administrator
+rectangle System as System3 {
+  usecase "Visualize Alarms with numbers" as UC13
+  usecase "Visualize Data with numbers" as UC23
+  usecase "Visualize Errors" as UC33
+  usecase "Visualize Active and Inactive Sensors" as UC43
+}
+
+rectangle Sensor as Sensor3 {
+
+}
+
+Administrator --> UC13
+Administrator --> UC23
+Administrator --> UC33
+Administrator --> UC43
+Sensor3 "serves Data" --> System3
 @enduml
