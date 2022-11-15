@@ -1,6 +1,12 @@
-= Index page
+= IOT Dashboard
 ifndef::imagesdir[:imagesdir: images]
 
-=== UC-Diagramm
+=== UC-Diagramm:
 
+[plantuml, ucd]
+----
+include::plantuml/ucd.puml[]
+----
+
+=== Telegraf.js
 
