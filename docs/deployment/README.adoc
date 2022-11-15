@@ -37,4 +37,6 @@ services:
 <.> Grafana Connection herstellen, siehe
 https://medium.com/analytics-vidhya/grafana-with-postgresql-data-visualization-with-open-source-tool-36f5150fa290[Anleitung^]
 
+**WICHTIG:** statt localhost:5432 bei der Data Source die ID oder den Namen des Containers eintragen
+
 link:files/set-up.sql[set-up.sql]
