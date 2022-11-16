@@ -15,7 +15,7 @@ rectangle System as System {
   usecase "Visualize active and inactive sensor boxes" as UC1
 
   usecase "Visualize errors" as UC2
-  usecase "Visualize alarms" as UC3
+  usecase "Visualize active and inactive sensors" as UC3
 }
 
 Administrator -- UC1
