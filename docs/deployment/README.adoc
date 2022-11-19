@@ -1,4 +1,4 @@
-== Anleitung Template Daten aus Postgres Datenbank auf Grafana Dashboard anzeigen
+= Anleitung Template Daten aus Postgres Datenbank auf Grafana Dashboard anzeigen
 = Hilfreiche Webseiten
 * https://medium.com/analytics-vidhya/grafana-with-postgresql-data-visualization-with-open-source-tool-36f5150fa290[Anleitung (Nur Grafana wichtig)]
 * https://www.postgresqltutorial.com/postgresql-getting-started/install-postgresql-linux/[Install Postgres]
@@ -6,7 +6,7 @@
 
 
 
-= Vorgangsweise:
+== Vorgangsweise:
 
 .docker-compose.yaml
 [source,yaml]
