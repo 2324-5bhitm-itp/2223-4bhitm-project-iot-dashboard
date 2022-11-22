@@ -1,3 +1,8 @@
 = Leo IOT Dashboard
 
 Dieses Repository beinhaltet die Dokumentation zum Einrichten und Verwalten des IOT Dashboards (siehe docs > deployment).
+
+[plantuml, ucd]
+----
+include::docs/asciidocs/plantuml/ucd.puml[]
+----
