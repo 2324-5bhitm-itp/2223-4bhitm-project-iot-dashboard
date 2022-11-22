@@ -6,7 +6,47 @@ ifndef::imagesdir[:imagesdir: images]
 
 [plantuml, ucd]
 ----
-include::plantuml/ucd.puml[]
+@startuml
+'https://plantuml.com/sequence-diagram
+
+'UCD -------------------------
+
+left to right direction
+
+rectangle Sensor
+
+Sensor "serves Data" --> System
+
+actor "Administrator" as Administrator
+
+rectangle System as System {
+  usecase "Visualize active and inactive sensor boxes" as UC1
+
+  usecase "Visualize errors" as UC2
+  usecase "Visualize active and inactive sensors" as UC3
+}
+
+Administrator -- UC1
+
+(UC1) .> (UC2) : extends
+(UC2) .> (UC3) : extends
+
+'UCD2 ------------------------
+rectangle Sensor2 as "Sensor"
+
+Sensor2 "serves Data" --> System2
+
+actor "School internal person" as School
+
+rectangle System as System2 {
+  usecase "Visualize data" as UC12
+  usecase "Visualize threshold Alarms" as UC22
+}
+
+School -- UC12
+(UC12) .> (UC22) : include
+
+@enduml
 ----
 
 
