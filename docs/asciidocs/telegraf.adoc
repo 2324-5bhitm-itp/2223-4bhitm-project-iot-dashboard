@@ -3,7 +3,7 @@
 === Allgemeines
 Telegraf ist ein Data Collector der Firma InfluxDB.
 Telegraf sammelt auf jeglicher Ebene Daten ein.
-Der Server Agent ist verschiedenste Plattformen erhältlich und für IOT-Anwendungen besonders geeignet.
+Der Server Agent ist auf verschiedensten Plattformen erhältlich und für IOT-Anwendungen besonders geeignet.
 
 image::images/telegraf.png[telegraf, 400]
 
