@@ -6,4 +6,5 @@ https://2223-4bhitm-itp.github.io/2223-4bhitm-project-iot-dashboard[Dokumentatio
 
 === Übersicht Telegraf
 
-siehe telegraf.adoc
+siehe https://github.com/2223-4bhitm-itp/2223-4bhitm-project-iot-dashboard/blob/main/docs/asciidocs/telegraf.adoc[telegraf.adoc]
+
