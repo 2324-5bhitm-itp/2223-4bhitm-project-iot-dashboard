@@ -6,3 +6,14 @@ Dieses Repository beinhaltet die Dokumentation zum Einrichten und Verwalten des 
 ----
 include::docs/asciidocs/plantuml/ucd.puml[]
 ----
+
+<!--
+@startuml firstDiagram
+
+Alice -> Bob: Hello
+Bob -> Alice: Hi!
+	
+@enduml
+-->
+
+![](firstDiagram.svg)
