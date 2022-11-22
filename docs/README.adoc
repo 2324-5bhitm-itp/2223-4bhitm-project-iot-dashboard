@@ -1,6 +1,4 @@
-= Documentation-IOT-Dashboard
-
-= Telegraf
+= Übersicht Telegraf 
 
 === Allgemeines
 Telegraf ist ein Data Collector der Firma InfluxDB.
