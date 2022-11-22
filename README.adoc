@@ -2,48 +2,5 @@
 
 Dieses Repository beinhaltet die Dokumentation zum Einrichten und Verwalten des IOT Dashboards (siehe docs > deployment).
 
-[plantuml, ucd]
-----
-@startuml
-'https://plantuml.com/sequence-diagram
-
-'UCD -------------------------
-
-left to right direction
-
-rectangle Sensor
-
-Sensor "serves Data" --> System
-
-actor "Administrator" as Administrator
-
-rectangle System as System {
-usecase "Visualize active and inactive sensor boxes" as UC1
-
-  usecase "Visualize errors" as UC2
-  usecase "Visualize active and inactive sensors" as UC3
-}
-
-Administrator -- UC1
-
-(UC1) .> (UC2) : extends
-(UC2) .> (UC3) : extends
-
-'UCD2 ------------------------
-rectangle Sensor2 as "Sensor"
-
-Sensor2 "serves Data" --> System2
-
-actor "School internal person" as School
-
-rectangle System as System2 {
-usecase "Visualize data" as UC12
-usecase "Visualize threshold Alarms" as UC22
-}
-
-School -- UC12
-(UC12) .> (UC22) : include
-
-@enduml
-----
+image:://www.plantuml.com/plantuml/png/VP71pjem3CVlVWgh5yO1qCAD0mB16o1szngFHaeJ5hk8RTgxBsqe0kthrqDZvv_ux_oy4wMaNUjXrgXUPRDQNJs5VcTPntOb_BFZKFF2EheaQW5cvyCH5rCVWESVYXenkKkZQ5tYMbqC07r0uU8PJnma9e2oOYMSRYnu9AKgbzxYwPSePo-gjTVtjdN1YIRAQOKa-BRpMhhSH98n-WE8dN1DmbXzSzAHTxyPSsLtoqkmwC8ZaTBEztXd6LpEXw_myNLEAQRna9cmy9JQySmQ_WAyTPqVMWo-vFySbrlCWPdZ1lck7An0oOkmVX7A3Cpa4FuZRVeUgX9N8tOpoTqymP_g9aQFBYYdG1wld2I6uKb5-WozcM9l1x_2TuATDecbYTxY_fMYCJt6OltWPmP-vWbm8EX2xJlB03iEjclzFm00[]
 
