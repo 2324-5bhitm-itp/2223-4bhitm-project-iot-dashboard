@@ -2,12 +2,7 @@
 'https://plantuml.com/sequence-diagram
 
 'UCD -------------------------
-
 left to right direction
-
-rectangle Sensor
-
-Sensor "serves Data" --> System
 
 actor "Administrator" as Administrator
 
@@ -24,11 +19,7 @@ Administrator -- UC1
 (UC2) .> (UC3) : extends
 
 'UCD2 ------------------------
-rectangle Sensor2 as "Sensor"
-
-Sensor2 "serves Data" --> System2
-
-actor "School internal person" as School
+actor "Viewer" as School
 
 rectangle System as System2 {
   usecase "Visualize data" as UC12
