@@ -1,5 +1,5 @@
 = IOT Dashboard
-Moritz Eder,
+Moritz Eder, Horner Paul, Oliver Schatzberger
 ifndef::imagesdir[:imagesdir: images]
 
 === UC-Diagramm:
