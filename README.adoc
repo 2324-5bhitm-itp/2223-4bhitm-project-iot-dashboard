@@ -1,6 +1,6 @@
 = Leo IOT Dashboard
 
-Dieses Repository beinhaltet die Dokumentation zum Einrichten und Verwalten des IOT Dashboards (siehe docs > deployment).
+Dieses Repository beinhaltet die Dokumentation zum Einrichten und Verwalten eines Template Dashboards mit Grafana (siehe docs > deployment).
 
 === UCD
 
