@@ -11,3 +11,20 @@ image::https://www.plantuml.com/plantuml/png/bP3FJW9138VlVOg62t80udBZO23u1WJkTQQ
 * 22-11-2022: Bis 29-11-2022:
 ** Wireframe vom Dashboard
 ** Quarkus Application ansehen
+
+==== Liste: Was soll dargestellt werden?
+
+* *Viewer*
+** 2D-Modell von HTL Leonding
+** Informationen über Raum nummerisch dargestellt (Temperatur, CO2-Wert, Luftfeuchtigkeit, Lautstärke, Helligkeit)
+** Daten als Graph visualisieren, wobei man einstellen kann, welchen Wert man sich ansehen will
+
+* *Admin*, zusätzlich dazu
+** kleines Loginfenster für Adminansicht -> kleiner Profilkreis mit Abmeldebutton
+** Alerts
+*** Grenzwertüberschreitungen
+*** große Wertsprünge (Hysterese)
+** Errors
+*** Sensorausfall
+*** Sensorboxausfall
+*** MQTT-Server Error
