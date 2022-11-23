@@ -28,3 +28,8 @@ image::https://www.plantuml.com/plantuml/png/bP3FJW9138VlVOg62t80udBZO23u1WJkTQQ
 *** Sensorausfall
 *** Sensorboxausfall
 *** MQTT-Server Error
+
+
+=== Wireframe
+==== Admin View
+image::docs/img/Wireframe.png[]
