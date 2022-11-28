@@ -18,9 +18,11 @@ image::https://www.plantuml.com/plantuml/png/bP3FJW9138VlVOg62t80udBZO23u1WJkTQQ
 ** 2D-Modell von HTL Leonding
 ** Informationen über Raum nummerisch dargestellt (Temperatur, CO2-Wert, Luftfeuchtigkeit, Lautstärke, Helligkeit)
 ** Daten als Graph visualisieren, wobei man einstellen kann, welchen Wert man sich ansehen will
+** Loginbutton für Adminansicht
 
 * *Admin*, zusätzlich dazu
-** kleines Loginfenster für Adminansicht -> kleiner Profilkreis mit Abmeldebutton
+** Logoutbutton
+** Aktive und passive Boxen
 ** Alerts
 *** Grenzwertüberschreitungen
 *** große Wertsprünge (Hysterese)
