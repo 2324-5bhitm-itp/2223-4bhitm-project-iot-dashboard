@@ -33,3 +33,5 @@ image::https://www.plantuml.com/plantuml/png/bP3FJW9138VlVOg62t80udBZO23u1WJkTQQ
 === Wireframe
 ==== Admin View
 image::docs/img/Wireframe.png[]
+==== General View
+image::docs/img/Wireframe2.png[]
