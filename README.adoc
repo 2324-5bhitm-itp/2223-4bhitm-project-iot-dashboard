@@ -4,7 +4,7 @@ Dieses Repository beinhaltet die Dokumentation zum Einrichten und Verwalten des 
 
 == Projektziel
 
-Das Projektzeil ist die Visualisierung der Raumklimata und ein Dashboard für die Admin Verwaltung der Sensorboxen des vererbten Projekts IOT Dashboard.
+Das Projektzeil ist die Visualisierung der Raumklimata der HTL Leonding und ein Dashboard für die Admin Verwaltung der Sensorboxen des Leo IOT Dashboards.
 
 
 === UCD
