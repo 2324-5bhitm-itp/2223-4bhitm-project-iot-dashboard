@@ -2,6 +2,11 @@
 
 Dieses Repository beinhaltet die Dokumentation zum Einrichten und Verwalten des IOT Dashboards der HTL Leonding mit Grafana. (Template Dashboard Anleitung siehe https://github.com/2223-4bhitm-itp/2223-4bhitm-project-iot-dashboard/tree/main/docs/deployment[hier]).
 
+== Projektziel
+
+Das Projektzeil ist die Visualisierung der Raumklimata und ein Dashboard für die Admin Verwaltung der Sensorboxen des vererbten Projekts IOT Dashboard.
+
+
 === UCD
 
 image::https://www.plantuml.com/plantuml/png/bP3FJW9138VlVOg62t80udBZO23u1WJkTQQoaymVd7OLDRwxionB975DtCFETDhcb-zRYLBM9dWOrwf7MSxdHq-nVPcP5ER2Bmr7mrFhw90f08ntcqUS3dtW-LbH4sPtg1MjospKfGX0HbF6qTe65vrefbAEa0HlNW3Q1Oe7pxXz5-LGHlhR9o0smeQ4SRHtqf1t7unK4bxB4IswU2c4evIuftHYEQViDlVm-phdd78_LFqtebzSm1V03KgHrANUbVy4PmzOBjK4byWdvMW5khfhB7uqEidLeENUvTxn6tSIjwPEoVzbhnhIPqcfLpI0htLcgPEtkFQKmrLMrK9tqHVQwanxfQfQtgBC-COomAhGDS5_0m00[]
