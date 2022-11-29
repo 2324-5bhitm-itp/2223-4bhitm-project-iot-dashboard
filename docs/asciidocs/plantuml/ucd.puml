@@ -11,6 +11,9 @@ rectangle System as System {
 
   usecase "Visualize errors" as UC2
   usecase "Visualize active and inactive sensors" as UC3
+
+  usecase "Visualize data" as UC12
+  usecase "Visualize threshold Alarms" as UC22
 }
 
 Administrator -- UC1
@@ -21,10 +24,7 @@ Administrator -- UC1
 'UCD2 ------------------------
 actor "Viewer" as School
 
-rectangle System as System2 {
-  usecase "Visualize data" as UC12
-  usecase "Visualize threshold Alarms" as UC22
-}
+Administrator <|-- School
 
 School -- UC12
 (UC12) .> (UC22) : include
