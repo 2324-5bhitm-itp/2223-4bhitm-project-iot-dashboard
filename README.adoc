@@ -36,6 +36,11 @@ image::https://www.plantuml.com/plantuml/png/bP3FJW9138VlVOg62t80udBZO23u1WJkTQQ
 *** Sensorboxausfall
 *** MQTT-Server Error
 
+* 22-11-2022: Bis 29-11-2022:
+** Detail Daten werden von faker MQTT angezeigt
+** GUI wird überarbeitet
+** Admin erbt von Viewer
+
 
 === Wireframe
 ==== Admin View
