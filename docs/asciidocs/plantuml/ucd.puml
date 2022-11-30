@@ -24,7 +24,7 @@ Administrator -- UC1
 'UCD2 ------------------------
 actor "Viewer" as School
 
-Administrator <|-- School
+Administrator --|> School : extends
 
 School -- UC12
 (UC12) .> (UC22) : include
