@@ -4,8 +4,10 @@ ifndef::imagesdir[:imagesdir: images]
 
 === UC-Diagramm:
 
-image::https://www.plantuml.com/plantuml/png/bP3FJW9138VlVOg62t80udBZO23u1WJkTQQoaymVd7OLDRwxionB975DtCFETDhcb-zRYLBM9dWOrwf7MSxdHq-nVPcP5ER2Bmr7mrFhw90f08ntcqUS3dtW-LbH4sPtg1MjospKfGX0HbF6qTe65vrefbAEa0HlNW3Q1Oe7pxXz5-LGHlhR9o0smeQ4SRHtqf1t7unK4bxB4IswU2c4evIuftHYEQViDlVm-phdd78_LFqtebzSm1V03KgHrANUbVy4PmzOBjK4byWdvMW5khfhB7uqEidLeENUvTxn6tSIjwPEoVzbhnhIPqcfLpI0htLcgPEtkFQKmrLMrK9tqHVQwanxfQfQtgBC-COomAhGDS5_0m00[]
-
+[plantuml]
+-----
+include::plantuml/ucd.puml[]
+-----
 
 
 
