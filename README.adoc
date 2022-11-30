@@ -23,10 +23,6 @@ image::https://www.plantuml.com/plantuml/png/bP2nJiD038PtFuNLfNHeAzAj0oegRr2LtUH
 ** 2D-Modell von HTL Leonding
 ** Informationen über Raum nummerisch dargestellt (Temperatur, CO2-Wert, Luftfeuchtigkeit, Lautstärke, Helligkeit)
 ** Daten als Graph visualisieren, wobei man einstellen kann, welchen Wert man sich ansehen will
-** Loginbutton für Adminansicht
-
-* *Admin*, zusätzlich dazu
-** Logoutbutton
 ** Aktive und passive Boxen
 ** Alerts
 *** Grenzwertüberschreitungen
@@ -43,7 +39,5 @@ image::https://www.plantuml.com/plantuml/png/bP2nJiD038PtFuNLfNHeAzAj0oegRr2LtUH
 
 
 === Wireframe
-==== Admin View
+==== Dashboard View
 image::docs/img/Wireframe.png[]
-==== General View
-image::docs/img/Wireframe2.png[]
