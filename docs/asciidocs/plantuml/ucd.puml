@@ -4,8 +4,6 @@
 'UCD -------------------------
 left to right direction
 
-actor "Administrator" as Administrator
-
 rectangle System as System {
   usecase "Visualize active and inactive sensor boxes" as UC1
 
@@ -16,17 +14,14 @@ rectangle System as System {
   usecase "Visualize threshold Alarms" as UC22
 }
 
-Administrator -- UC1
-
 (UC1) .> (UC2) : extends
 (UC2) .> (UC3) : extends
 
 'UCD2 ------------------------
 actor "Viewer" as School
 
-Administrator --|> School : extends
-
 School -- UC12
+School -- UC1
 (UC12) .> (UC22) : include
 
 @enduml

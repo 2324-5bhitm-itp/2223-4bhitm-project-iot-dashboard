@@ -9,11 +9,11 @@ Das Projektzeil ist die Visualisierung der Raumklimata der HTL Leonding und ein 
 
 === UCD
 
-image::https://www.plantuml.com/plantuml/png/bL7BRYen3DtxAomsN1Q0xh1ZWK3q3n3itSHb8kL1OqzB7_tt1eP1e7OMdSN4ZnoV4v-bA6LjWeTXhNgG-NHwy1HFbOb9OIhyt70qFBQEzfa2m72xVi1ntmUUdnGrONRxMj6wp4PTYW1aD6KSh6nmqObcAka0IV2k0d02KDnxnisRA0SawQ8FG6o43GdZOEUa8U_U6Qaml9GZMdJnaWX7ANIFwSXoPjck_yFlSCuvvUvIzLUA3ZZhcMv9gHFGCrphp58dRt7bAOUhb0g-0EwsK_RUFkHV-Ozmii0IL2ES8n-LenLeyxOnkscqlbMzndNsx1o_SklBnjGf-PyAFXUNrktqIwNLLvtrNNLKPuKk6jzO1bWMH1FyDm00[]
+image::https://www.plantuml.com/plantuml/png/bP2nJiD038PtFuNLfNHeAzAj0oegRr2LtUHCSjBbhjW-A23UdKiW5KXa88lj-Fx__-IT6edbBi2yDJlfThq-1OhzdrMTkhNoK-POyz9vQeGwWFbnVuVBgGy2FnfQGl5DQ-YyS6q-HO2-eTW4niEh6dT8EdRlW9YLQrB6sRtNJC6_CL9HFfSI7VhuFIX7JO8FwSmwwosE-sluMyuYISP7rNyZHk5cmjsHqGWmOMwjiBOfEBmD9Dq5fO8FWAkYM-3g1ajJBN2BV3QEJg6VnyNcvsAuV8MJbo_uIVfyVc4PiWvrcr80-Af5ES3-7WUGIs0reFXOX-mOO5U2SnS-0G00[]
 
 
 === Sprints
-* 22-11-2022: Bis 29-11-2022:
+* *22-11-2022: Bis 29-11-2022:*
 ** Wireframe vom Dashboard
 ** Quarkus Application ansehen
 
@@ -36,7 +36,7 @@ image::https://www.plantuml.com/plantuml/png/bL7BRYen3DtxAomsN1Q0xh1ZWK3q3n3itSH
 *** Sensorboxausfall
 *** MQTT-Server Error
 
-* 29-11-2022: Bis 06-12-2022:
+* *29-11-2022: Bis 06-12-2022:*
 ** Detail Daten werden von faker MQTT angezeigt
 ** GUI wird überarbeitet
 ** UCD wird überarbeitet
