@@ -12,10 +12,13 @@ Das Projektzeil ist die Visualisierung der Raumklimata der HTL Leonding und ein 
 image::https://www.plantuml.com/plantuml/png/bP2nJiD038PtFuNLfNHeAzAj0oegRr2LtUHCSjBbhjW-A23UdKiW5KXa88lj-Fx__-IT6edbBi2yDJlfThq-1OhzdrMTkhNoK-POyz9vQeGwWFbnVuVBgGy2FnfQGl5DQ-YyS6q-HO2-eTW4niEh6dT8EdRlW9YLQrB6sRtNJC6_CL9HFfSI7VhuFIX7JO8FwSmwwosE-sluMyuYISP7rNyZHk5cmjsHqGWmOMwjiBOfEBmD9Dq5fO8FWAkYM-3g1ajJBN2BV3QEJg6VnyNcvsAuV8MJbo_uIVfyVc4PiWvrcr80-Af5ES3-7WUGIs0reFXOX-mOO5U2SnS-0G00[]
 
 
-=== Sprints
+=== Sprints siehe YouTrack
 * *22-11-2022: Bis 29-11-2022:*
 ** Wireframe vom Dashboard
 ** Quarkus Application ansehen
+
+* Start: 13-12-2022
+** Daten von MQTT-Server auf lokalem Dashboard anzeigen
 
 ==== Liste: Was soll dargestellt werden?
 
