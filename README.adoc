@@ -17,7 +17,7 @@ image::https://www.plantuml.com/plantuml/png/bP2nJiD038PtFuNLfNHeAzAj0oegRr2LtUH
 ** Wireframe vom Dashboard
 ** Quarkus Application ansehen
 
-* Start: 13-12-2022
+* *Start: 13-12-2022*
 ** Daten von MQTT-Server auf lokalem Dashboard anzeigen
 
 ==== Liste: Was soll dargestellt werden?
