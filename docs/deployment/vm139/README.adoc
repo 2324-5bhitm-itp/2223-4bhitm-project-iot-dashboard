@@ -1,0 +1,8 @@
+= Leo IOT Dashboard
+
+Grafana Dashboard auf der vm139:
+http://vm139.htl-leonding.ac.at:3000/
+
+
+
+
