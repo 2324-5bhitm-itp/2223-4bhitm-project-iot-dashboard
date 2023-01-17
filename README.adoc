@@ -44,3 +44,10 @@ image::https://www.plantuml.com/plantuml/png/bP2nJiD038PtFuNLfNHeAzAj0oegRr2LtUH
 === Wireframe
 ==== Dashboard View
 image::docs/img/Wireframe.png[]
+
+
+* *Bis zum Tag der offenen Tür*
+** Original dashboard mit Grafana bestücken
+** Schwellwerte anzeigen
+
+image::docs/img/Concept.png[]
