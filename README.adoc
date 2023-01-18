@@ -56,4 +56,5 @@ image::docs/img/Concept.png[]
 ** Neues Subnet für Docker definieren
 *** 10.0.1.  /16
 ** Eine Liste von den Schritten wie wir alles installiert habe
+** Grafana Server neustarten, mit geänderten Umgebungsvariablen für Einbindung einer Grafik auf dem Dashboard per iframe
 
