@@ -3,6 +3,8 @@
 Grafana Dashboard auf der vm139:
 http://vm139.htl-leonding.ac.at:3000/
 
+Diagramme:
 
+image::../img/graphs.png[]
 
 
