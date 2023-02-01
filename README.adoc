@@ -55,5 +55,9 @@ image::docs/img/Concept.png[]
 * *Nach Tag der offenen Tür*
 ** Neues Subnet für Docker definieren
 *** 10.0.1.  /16
-** Eine Liste von den Schritten wie wir alles installiert habe
+** Eine Liste von den Schritten wie wir alles installiert haben
 
+
+* *Nächster Sprint*
+
+** Statt Iframes Custom elements einbinden
