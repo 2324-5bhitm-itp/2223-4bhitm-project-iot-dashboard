@@ -60,10 +60,11 @@ volumes:
 
 == Vorgangsweise:
 
+
+IMPORTANT: Der Grafana container muss per docker network mit dem Datenbank container connected sein!
+
 <.> docker-compose up -d
+<.> docker network create <network-name>
+<.> docker network connect <network-name> <docker-container-name> (für alle container)
 <.> auf iframe.html: Benutzer: admin, Passwort: admin
 <.> Skip
-
-IMPORTANT: Der Grafana container muss per docker network mit dem Datenbank container connected sein
-
-
