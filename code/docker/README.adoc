@@ -64,4 +64,6 @@ volumes:
 <.> auf iframe.html: Benutzer: admin, Passwort: admin
 <.> Skip
 
+IMPORTANT: Der Grafana container muss per docker network mit dem Datenbank container connected sein
+
 
