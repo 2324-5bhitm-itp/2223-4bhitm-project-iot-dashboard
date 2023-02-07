@@ -74,3 +74,6 @@ volumes:
 <1> Damit das iframe überhaupt angezeigt wird
 <2> Damit man nicht in einen Anmelde-Loop kommt
 
+
+Lösung: https://stackoverflow.com/questions/57315587/how-to-authenticate-and-embedded-grafana-charts-into-iframe
+
