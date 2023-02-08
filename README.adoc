@@ -67,4 +67,9 @@ image::docs/img/Concept.png[]
 *** *Das Team hat die Leo boxen zu übernehmen*
 *** *Eine Leo Box ist in der 4BHITM zu installieren*
 *** *Das Team muss Leo Boxen flashen und mit ihnen kommunizieren können*
+*** Wie spreche ich mit einer Leo Box?
+*** Wie konfiguriere, flashe ich sie?
+*** Umstellung auf secure MQTT
+*** Genaue Definition des Dashboards
+*** Situation der Repos muss unter Kontrolle gebracht werden
 
