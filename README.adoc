@@ -59,3 +59,12 @@ image::docs/img/Concept.png[]
 
 * *Nächster Sprint*
 ** Angular Custom Elements statt Iframes
+
+* *Besprechung am 07.02.2023*
+** Zielsetzung
+*** System Architecture zeichnen und aufbauen
+*** *Als Schüler möchte ich nach dem klick auf den räum e61 die Grafik der Temperatur usw sehen.*
+*** *Das Team hat die Leo boxen zu übernehmen*
+*** *Eine Leo Box ist in der 4BHITM zu installieren*
+*** *Das Team muss Leo Boxen flashen und mit ihnen kommunizieren können*
+
