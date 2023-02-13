@@ -1,0 +1,30 @@
+= Sachstandsbericht
+:toc:
+:icons: font
+:sectnums:
+:url-quickref: https://docs.asciidoctor.org/asciidoc/latest/syntax-quick-reference/
+
+
+== Bisheriger Projektverlauf und erreichte Teilergebnisse
+
+* Template Daten mit Grafana angezeigt
+* Telegraf JS Recherche (im Nachhinein nicht notwendig)
+* UCD erstellt
+* Definiert: Was soll auf dem Dashboard dargestellt werden?
+* Wireframe erstellt
+* neues lokales Dashboard erstellt und Grundriss realisiert
+* 2 Plakate für das Projekt erstellt
+* Aussagekräftige Diagrammer erstellt
+* Daten von Leoboxen auf lokalem Dashboard visualisiert
+* Daten von Leoboxen auf online Dashboard, auf der VM139 visualisiert
+* Diagramme mit Variablen angepasst
+* Komplikationen mit IP-Adressen auf der VM mit docker networks gelöst
+
+
+== Nächste Aufgaben
+
+* System Architektur erweitern / genauer beschreiben
+* Eine Leobox übernehmen und in der 4BHITM installieren
+* Kommunikation mit der Leobox aufnehmen können
+* Die Leobox flashen können
+* Dashboard neu machen, unwichtige Dinge weglassen, nur das nötigste übernehmen, für bessere Übersicht, weil man sich ohne ein wenig Angular Erfahrung gar nicht auskennt beim Dashboard.
