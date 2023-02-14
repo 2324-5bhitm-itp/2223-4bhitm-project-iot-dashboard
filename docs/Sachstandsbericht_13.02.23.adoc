@@ -14,7 +14,7 @@
 * Wireframe erstellt
 * neues lokales Dashboard erstellt und Grundriss realisiert
 * 2 Plakate für das Projekt erstellt
-* Aussagekräftige Diagrammer erstellt
+* Aussagekräftige Diagramme erstellt
 * Daten von Leoboxen auf lokalem Dashboard visualisiert
 * Daten von Leoboxen auf online Dashboard, auf der VM139 visualisiert
 * Diagramme mit Variablen angepasst
