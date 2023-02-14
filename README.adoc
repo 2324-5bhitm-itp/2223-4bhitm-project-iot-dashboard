@@ -73,3 +73,10 @@ image::docs/img/Concept.png[]
 *** Genaue Definition des Dashboards
 *** Situation der Repos muss unter Kontrolle gebracht werden
 
+* *Besprechung am 14.02.2023*
+** Amerikanisches auf Europäisches Datum umstellen
+** Datenbanken verstehen -> Wie kommen welche Daten wo hin
+** Boxen -> *Welche* boxen und *wieviele* bekommen wir?
+** Dasboard auf einer plain HTML seite
+*** Soll auf der VM laufen
+*** Soll durch eine URL erreichbar sein
