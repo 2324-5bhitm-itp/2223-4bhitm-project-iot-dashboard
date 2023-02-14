@@ -73,8 +73,3 @@ image::docs/img/Concept.png[]
 *** Genaue Definition des Dashboards
 *** Situation der Repos muss unter Kontrolle gebracht werden
 
-* *Besprechung am 14.02.2023*
-** Amerikanisches Datumsformat ändern auf europäisches
-** Datnbanken übernehmen -> Architektur aneignen
-** Über Boxen informieren -> Welche, wie viele?
-** Dashboard in plain HTML einbinden und durch URL auf VM erreichbar machen
