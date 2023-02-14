@@ -1,3 +1,5 @@
+:sectnums:
+
 = Leo IOT Dashboard
 
 Dieses Repository beinhaltet die Dokumentation zum Einrichten und Verwalten des IOT Dashboards der HTL Leonding mit Grafana. (Template Dashboard Anleitung siehe https://github.com/2223-4bhitm-itp/2223-4bhitm-project-iot-dashboard/tree/main/docs/deployment[hier]).
@@ -72,4 +74,16 @@ image::docs/img/Concept.png[]
 *** Umstellung auf secure MQTT
 *** Genaue Definition des Dashboards
 *** Situation der Repos muss unter Kontrolle gebracht werden
+
+=== Befehle für Deployment auf die VM139
+
+==== im Dashboard Terminal
+* docker build -t ghcr.io/leo-iot/leo-iot-web/app .
+* docker push ghcr.io/leo-iot/leo-iot-web/app
+
+==== im VM139 Terminal
+* docker compose pull
+* docker compose stop
+* docker compose rm -f
+* docker compose up -d
 
