@@ -22,8 +22,7 @@ services:
     ports:
       - "80:80"
     networks:
-      iot_net:
-        ipv4_address: 10.0.1.1
+      - iot_net
 
   leo-iot-server:
     depends_on: [leo-iot-db]
@@ -34,8 +33,8 @@ services:
     extra_hosts:
       - "vm90.htl-leonding.ac.at:10.191.112.90"
     networks:
-      iot_net:
-        ipv4_address: 10.0.1.2
+      - iot_net
+    restart: always
 
   leo-iot-db:
     image: ghcr.io/leo-iot/leo-iot-database/app
@@ -49,8 +48,7 @@ services:
     ports:
       - "5432:5432"
     networks:
-      iot_net:
-        ipv4_address: 10.0.1.3
+      - iot_net
 
   leo-iot-grafana:
     image: grafana/grafana:9.3.6
@@ -59,20 +57,19 @@ services:
       - 3000:3000
     volumes:
       - grafana-storage:/var/lib/grafana
+      - ./grafana.ini:/etc/grafana/grafana.ini
     environment:
       - GF_SECURITY_ALLOW_EMBEDDING=true <1>
-#      - GF_SECURITY_COOKIE_SECURE=true <2>
-#      - GF_SECURITY_COOKIE_SAMESITE=none <2>
+      - GF_AUTH_ANONYMOUS_ENABLED=true <2>
     networks:
-      iot_net:
-        ipv4_address: 10.0.1.4
+      - iot_net
 
 networks:
   iot_net:
     ipam:
       driver: default
       config:
-        - subnet: 10.0.0.0/16
+        - subnet: 10.139.1.0/16
 
 volumes:
   grafana-storage:
