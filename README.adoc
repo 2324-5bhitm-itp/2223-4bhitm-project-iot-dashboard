@@ -89,3 +89,22 @@ image::docs/img/Concept.png[]
 ** docker-compose stop
 ** docker-compose rm -f
 ** docker-compose up -d
+
+=== How to configure LeoBox
+** Connect Box to power grid
+** If the green light blinks, connect to Box
+via accespoint ESP..
+** Configure the Box via HTTP GET requests:
+** check the current config:
+*** 'http://192.168.4.1/config'
+** set the right name for level and room number
+*** 'http://192.168.4.1/config?thingname=stockwerk/roomname'
+** set the right name for level and room number
+*** 'http://192.168.4.1/config?thingname=stockwerk/roomname'
+** connect the box to a network
+*** 'http://192.168.4.1/config?ssid=iot'
+*** 'http://192.168.4.1/config?password=passme'
+** restart the box
+*** 'http://192.168.4.1/restart'
+
+https://github.com/gkoe/esp-idf_21/blob/main/esp%20config.txt[Further configuration options]
