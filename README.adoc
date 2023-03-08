@@ -90,6 +90,7 @@ image::docs/img/Concept.png[]
 ** docker-compose rm -f
 ** docker-compose up -d
 
+
 === How to configure LeoBox
 ** Connect Box to power grid
 ** If the green light blinks, connect to Box
