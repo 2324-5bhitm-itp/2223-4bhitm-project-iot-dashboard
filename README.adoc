@@ -90,6 +90,8 @@ image::docs/img/Concept.png[]
 ** docker-compose rm -f
 ** docker-compose up -d
 
+=== 08.03.23
+
 === How to configure LeoBox
 ** Connect Box to power grid
 ** If the green light blinks, connect to Box
@@ -108,3 +110,5 @@ via accespoint ESP..
 *** 'http://192.168.4.1/restart'
 
 https://github.com/gkoe/esp-idf_21/blob/main/esp%20config.txt[Further configuration options]
+
+LeoBox Daten werden auf Grafana Dashboard angezeigt
