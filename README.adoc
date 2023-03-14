@@ -119,3 +119,16 @@ Wann schreibt Quarkus die Daten in die Datenbank?
 und wann die anderen, ...
 
 
+=== Besprechung am 14.03.2023
+
+1. Grafische Darstellung der Schule
+2. Bei click auf Raum werden die Werte dieses Raumes dargestellt
+3. Jeder Raum soll ein Symbol enthalten, falls eine Box installiert ist
+4. Die Sensordaten sollen aktuell und im Zeitverlauf dargestellt werden
+5. Es sollen Schwellwerte dokumentiert sein bei denen etwas passiert zB Senden einer Mitteilung
+6. Der zustand des Neopixel Leuchtrings soll dargestellt werden (nice-to-have)
+7. *Grundsatzentscheidung:* Das gesamte IoT Projekt wird in einem K8s-Namespace Installiert
+** Umzug von Jakob Rathberger auf Namespace von Moritz Eder
+** Erstellung einer zweiten Installation im Namespace von Paul Horner (Dokumentation der zu tätigenden Änderungen)
+8. Dokumentation der einzelnen Komponenten
+9. Documentation der Deployment-Pipeline
