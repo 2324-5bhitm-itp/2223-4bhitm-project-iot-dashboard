@@ -112,3 +112,10 @@ via accespoint ESP..
 https://github.com/gkoe/esp-idf_21/blob/main/esp%20config.txt[Further configuration options]
 
 LeoBox Daten werden auf Grafana Dashboard angezeigt
+
+=== 14.03
+
+Wann schreibt Quarkus die Daten in die Datenbank?
+und wann die anderen, ...
+
+
