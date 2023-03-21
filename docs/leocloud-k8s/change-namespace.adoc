@@ -8,7 +8,7 @@ Moritz Eder
 
 .leo-iot-core Repo auschecken
 ----
-git clone git@github.com:leo-iot/leo-iot-core.git
+git clone https://github.com/leo-iot/leo-iot-core.git
 ----
 
 .auf k8s-deployment branch wechseln
@@ -16,10 +16,19 @@ git clone git@github.com:leo-iot/leo-iot-core.git
 git checkout feature/k8s-deployment
 ----
 
+&&
+
+.leo-iot-web Repo auschecken
+----
+git clone https://github.com/leo-iot/leo-iot-web.git
+----
+
 .auf k8s-deployment branch wechseln
 ----
 git checkout feature/k8s-deployment
 ----
+
+beide Projekte öffnen
 
 == Install kind
 
@@ -44,7 +53,7 @@ brew install kind
 
 https://kubernetes.io/docs/tasks/tools/[Install kubectl]
 
-Befehle auf dem k8s-deployment branch
+IMPORTANT: Befehle im CORE Repo auf dem k8s-deployment branch
 
 -----
 kind create cluster --config ./k8s-manifests/cluster-config.yaml
@@ -58,7 +67,7 @@ kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/helm
 kubectl wait -n ingress-nginx --for=condition=ready pod --selector=app.kubernetes.io/component=controller --timeout=90s
 -----
 
-==== Namespace ändern für Backend
+=== Namespace ändern für Backend
 
 In folgenden Files Namespace auf den eigenen ändern
 
@@ -79,7 +88,9 @@ kubectl apply -f ./k8s-manifests/value-sim-database.yaml
 kubectl apply -f ./k8s-manifests/value-sim.yaml
 -----
 
-.siehe Anleitung auf der Leocloud https://cloud.htl-leonding.ac.at/
+* In der LeoCloud anmelden https://cloud.htl-leonding.ac.at/
+* Auf mein Dashboard klicken und den Anweisungen folgen
+
 -----
 kubectl proxy
 -----
@@ -88,4 +99,49 @@ Jetzt wurde erfolgreich das Backend auf deinen Namespace kopiert: https://studen
 
 === Namespace ändern für Frontend
 
+IMPORTANT: Nun in die Command Line vom Web Repo wechseln und auch auf den k8s-deployment branch
 
+In den Files
+
+* package.json
+* environment.prod.ts
+
+Den Namespace wieder ändern
+
+.mit Token anmelden
+----
+docker login ghcr.io
+----
+
+IMPORTANT: Auf Github schauen, ob man Rechte fürs uploaden hat
+
+.builden
+-----
+docker build -t ghcr.io/leo-iot/leo-iot-web-k8s/app:latest .
+-----
+
+.pushen
+-----
+docker push ghcr.io/leo-iot/leo-iot-web-k8s/app:latest
+-----
+
+IMPORTANT: Wieder folgende Befehle im Core Repo ausführen
+
+-----
+kubectl apply -f ./k8s-manifests/database.yaml
+kubectl apply -f ./k8s-manifests/backend.yaml
+kubectl apply -f ./k8s-manifests/frontend.yaml
+kubectl apply -f ./k8s-manifests/value-sim-database.yaml
+kubectl apply -f ./k8s-manifests/value-sim.yaml
+-----
+
+==== Pod löschen
+
+* Im Frontend auf Pods navigieren
+
+image::images/img.png[]
+
+* Den leo-iot-frontend-xxxxxxxx Pod löschen
+* Er startet von selbst neu
+
+Jetzt wurde erfolgreich das Frontend auch auf deinen Namespace kopiert: https://student.cloud.htl-leonding.ac.at/<dein-namespace>/frontend/dashboard
