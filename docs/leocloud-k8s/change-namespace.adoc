@@ -94,8 +94,6 @@ z.B. path: /j.rathberger/backend(/|$)(.*)$
 Sobald der dritte Befehl fertig ist, folgende auch auf demselben branch ausführen:
 ////
 
-https://kubernetes.io/docs/tasks/tools/[Install kubectl]
-
 IMPORTANT: Befehle im CORE Repo auf dem k8s-deployment branch
 
 Damit man den Url-Path ändern kann, muss man bei den Befehlen, den eigenen Namespace mitgeben
