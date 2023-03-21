@@ -79,4 +79,13 @@ kubectl apply -f ./k8s-manifests/value-sim-database.yaml
 kubectl apply -f ./k8s-manifests/value-sim.yaml
 -----
 
-== Leocloud
+.siehe Anleitung auf der Leocloud https://cloud.htl-leonding.ac.at/
+-----
+kubectl proxy
+-----
+
+Jetzt wurde erfolgreich das Backend auf deinen Namespace kopiert: https://student.cloud.htl-leonding.ac.at/<dein-namespace>/backend
+
+=== Namespace ändern für Frontend
+
+
