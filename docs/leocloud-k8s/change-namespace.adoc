@@ -30,6 +30,7 @@ git checkout feature/k8s-deployment
 
 beide Projekte öffnen
 
+////
 == Install kind
 
 .Ubuntu
@@ -48,12 +49,14 @@ brew install kind
 -----
 ¯\_(ツ)_/¯
 -----
+////
+
 
 == Kubernetes
 
 https://kubernetes.io/docs/tasks/tools/[Install kubectl]
 
-IMPORTANT: Befehle im CORE Repo auf dem k8s-deployment branch
+////
 
 -----
 kind create cluster --config ./k8s-manifests/cluster-config.yaml
@@ -66,9 +69,19 @@ kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/helm
 -----
 kubectl wait -n ingress-nginx --for=condition=ready pod --selector=app.kubernetes.io/component=controller --timeout=90s
 -----
+////
+
 
 === Namespace ändern für Backend
 
+* In der LeoCloud anmelden https://cloud.htl-leonding.ac.at/
+* Auf mein Dashboard klicken und den Anweisungen folgen
+
+-----
+kubectl proxy
+-----
+
+////
 In folgenden Files Namespace auf den eigenen ändern
 
 * backend.yaml
@@ -79,20 +92,20 @@ z.B. path: /j.rathberger/backend(/|$)(.*)$
     path: /m.eder3/backend(/|$)(.*)$
 
 Sobald der dritte Befehl fertig ist, folgende auch auf demselben branch ausführen:
+////
+
+https://kubernetes.io/docs/tasks/tools/[Install kubectl]
+
+IMPORTANT: Befehle im CORE Repo auf dem k8s-deployment branch
+
+Damit man den Url-Path ändern kann, muss man bei den Befehlen, den eigenen Namespace mitgeben
 
 -----
-kubectl apply -f ./k8s-manifests/database.yaml
-kubectl apply -f ./k8s-manifests/backend.yaml
-kubectl apply -f ./k8s-manifests/frontend.yaml
-kubectl apply -f ./k8s-manifests/value-sim-database.yaml
-kubectl apply -f ./k8s-manifests/value-sim.yaml
------
-
-* In der LeoCloud anmelden https://cloud.htl-leonding.ac.at/
-* Auf mein Dashboard klicken und den Anweisungen folgen
-
------
-kubectl proxy
+kubectl apply -n <namespace> -f ./k8s-manifests/database.yaml
+kubectl apply -n <namespace> -f ./k8s-manifests/backend.yaml
+kubectl apply -n <namespace> -f ./k8s-manifests/frontend.yaml
+kubectl apply -n <namespace> -f ./k8s-manifests/value-sim-database.yaml
+kubectl apply -n <namespace> -f ./k8s-manifests/value-sim.yaml
 -----
 
 Jetzt wurde erfolgreich das Backend auf deinen Namespace kopiert: https://student.cloud.htl-leonding.ac.at/<dein-namespace>/backend
@@ -128,13 +141,15 @@ docker push ghcr.io/leo-iot/leo-iot-web-k8s/app:latest
 IMPORTANT: Wieder folgende Befehle im Core Repo ausführen
 
 -----
-kubectl apply -f ./k8s-manifests/database.yaml
-kubectl apply -f ./k8s-manifests/backend.yaml
-kubectl apply -f ./k8s-manifests/frontend.yaml
-kubectl apply -f ./k8s-manifests/value-sim-database.yaml
-kubectl apply -f ./k8s-manifests/value-sim.yaml
+kubectl apply -n <namespace> -f ./k8s-manifests/database.yaml
+kubectl apply -n <namespace> -f ./k8s-manifests/backend.yaml
+kubectl apply -n <namespace> -f ./k8s-manifests/frontend.yaml
+kubectl apply -n <namespace> -f ./k8s-manifests/value-sim-database.yaml
+kubectl apply -n <namespace> -f ./k8s-manifests/value-sim.yaml
 -----
 
+
+////
 ==== Pod löschen
 
 * Im Frontend auf Pods navigieren
@@ -143,5 +158,7 @@ image::images/img.png[]
 
 * Den leo-iot-frontend-xxxxxxxx Pod löschen
 * Er startet von selbst neu
+////
+
 
 Jetzt wurde erfolgreich das Frontend auch auf deinen Namespace kopiert: https://student.cloud.htl-leonding.ac.at/<dein-namespace>/frontend/dashboard
