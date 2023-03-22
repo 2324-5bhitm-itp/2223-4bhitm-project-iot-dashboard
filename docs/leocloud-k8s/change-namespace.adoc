@@ -81,32 +81,17 @@ kubectl wait -n ingress-nginx --for=condition=ready pod --selector=app.kubernete
 kubectl proxy
 -----
 
-////
 In folgenden Files Namespace auf den eigenen ändern
 
 * backend.yaml
 * frontend.yaml
+* value-sim-database.yaml
+* value-sim.yaml
+* database.yaml
 
 z.B. path: /j.rathberger/backend(/|$)(.*)$
     ->
     path: /m.eder3/backend(/|$)(.*)$
-
-Sobald der dritte Befehl fertig ist, folgende auch auf demselben branch ausführen:
-////
-
-IMPORTANT: Befehle im CORE Repo auf dem k8s-deployment branch
-
-Damit man den Url-Path ändern kann, muss man bei den Befehlen, den eigenen Namespace mitgeben
-
------
-kubectl apply -n <namespace> -f ./k8s-manifests/database.yaml
-kubectl apply -n <namespace> -f ./k8s-manifests/backend.yaml
-kubectl apply -n <namespace> -f ./k8s-manifests/frontend.yaml
-kubectl apply -n <namespace> -f ./k8s-manifests/value-sim-database.yaml
-kubectl apply -n <namespace> -f ./k8s-manifests/value-sim.yaml
------
-
-Jetzt wurde erfolgreich das Backend auf deinen Namespace kopiert: https://student.cloud.htl-leonding.ac.at/<dein-namespace>/backend
 
 === Namespace ändern für Frontend
 
@@ -136,7 +121,9 @@ docker build -t ghcr.io/leo-iot/leo-iot-web-k8s/app:latest .
 docker push ghcr.io/leo-iot/leo-iot-web-k8s/app:latest
 -----
 
-IMPORTANT: Wieder folgende Befehle im Core Repo ausführen
+IMPORTANT: Folgende Befehle im Core Repo ausführen
+
+Damit man den Url-Path ändern kann, muss man bei den Befehlen, den eigenen Namespace mitgeben
 
 -----
 kubectl apply -n <namespace> -f ./k8s-manifests/database.yaml
@@ -159,4 +146,7 @@ image::images/img.png[]
 ////
 
 
-Jetzt wurde erfolgreich das Frontend auch auf deinen Namespace kopiert: https://student.cloud.htl-leonding.ac.at/<dein-namespace>/frontend/dashboard
+Jetzt wurde erfolgreich das Backend und das Frontend auf deinen Namespace kopiert:
+
+* https://student.cloud.htl-leonding.ac.at/<dein-namespace>/backend
+* https://student.cloud.htl-leonding.ac.at/<dein-namespace>/frontend/dashboard
