@@ -1,0 +1,19 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    grid-gap: 10px;
+}
+
+.box {
+    background-color: #ddd;
+    padding: 20px;
+    text-align: center;
+    font-size: 24px;
+    width: 50%;
+}
+
+canvas {
+    width: 50vw;
+}
