@@ -51,6 +51,7 @@ const chartLine = new Chart(ctx, {
     }]
   },
   options: {
+    maintainAspectRatio: false,
     scales: {
       y: {
         suggestedMin: 0,
@@ -79,6 +80,7 @@ const chartPie = new Chart(ctxDogg, {
     }]
   },
   options: {
+    maintainAspectRatio: false,
     scales: {
       y: {
         suggestedMin: 0,
