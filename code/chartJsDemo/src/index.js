@@ -39,25 +39,25 @@ const ctx = canvas.getContext('2d');
 
 // create a new chart object
 const chartLine = new Chart(ctx, {
-    type: 'line',
-    data: {
-        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-        datasets: [{
-            label: 'Temperature',
-            data: temperatures,
-            backgroundColor: 'rgba(255, 99, 132, 0.2)',
-            borderColor: 'rgba(255, 99, 132, 1)',
-            borderWidth: 1
-        }]
-    },
-    options: {
-        scales: {
-            y: {
-                suggestedMin: 0,
-                suggestedMax: 40
-            }
-        }
+  type: 'line',
+  data: {
+    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+    datasets: [{
+      label: 'Temperature',
+      data: temperatures,
+      backgroundColor: 'rgba(255, 99, 132, 0.2)',
+      borderColor: 'rgba(255, 99, 132, 1)',
+      borderWidth: 1
+    }]
+  },
+  options: {
+    scales: {
+      y: {
+        suggestedMin: 0,
+        suggestedMax: 40
+      }
     }
+  }
 });
 
 
@@ -67,55 +67,82 @@ const ctxDogg = canvasDogg.getContext('2d');
 
 // create a new chart object
 const chartPie = new Chart(ctxDogg, {
-    type: 'pie',
-    data: {
-        labels: ['today'],
-        datasets: [{
-            label: 'Temperature',
-            data: temperatures,
-            backgroundColor: 'rgba(255, 99, 132, 0.2)',
-            borderColor: 'rgba(255, 99, 132, 1)',
-            borderWidth: 1
-        }]
-    },
-    options: {
-        scales: {
-            y: {
-                suggestedMin: 0,
-                suggestedMax: 40
-            }
-        }
+  type: 'pie',
+  data: {
+    labels: ['today'],
+    datasets: [{
+      label: 'Temperature',
+      data: temperatures,
+      backgroundColor: 'rgba(255, 99, 132, 0.2)',
+      borderColor: 'rgba(255, 99, 132, 1)',
+      borderWidth: 1
+    }]
+  },
+  options: {
+    scales: {
+      y: {
+        suggestedMin: 0,
+        suggestedMax: 40
+      }
     }
+  }
 });
 
 // Set up the data
-const currentTemp = 75;
-const thresholds = [
-  { label: 'Low', value: 50, color: '#FF6384' },
-  { label: 'Medium', value: 75, color: '#36A2EB' },
-  { label: 'High', value: 100, color: '#FFCE56' },
+const currentTemp = 25;
+const thresholds = [{
+    label: 'Low',
+    value: 50,
+    color: '#FF6384'
+  },
+  {
+    label: 'Medium',
+    value: 75,
+    color: '#36A2EB'
+  },
+  {
+    label: 'High',
+    value: 100,
+    color: '#FFCE56'
+  },
 ];
 
 // Create the chart
 const ctxDough = document.getElementById('temperature_dough_chart').getContext('2d');
+var threshold1 = 10;
+var threshold2 = 20;
+var threshold3 = 30;
+
 const chartDough = new Chart(ctxDough, {
   type: 'doughnut',
   data: {
-    labels: thresholds.map(t => t.label),
     datasets: [{
-      data: [
-        thresholds[0].value,
-        thresholds[1].value - thresholds[0].value,
-        thresholds[2].value - thresholds[1].value,
-        150 - thresholds[2].value,
+      data: [currentTemp, threshold1 - currentTemp, threshold2 - threshold1, threshold3 - threshold2, 100 - threshold3],
+      backgroundColor: [
+        'rgba(255, 99, 132, 0.6)',
+        'rgba(54, 162, 235, 0.6)',
+        'rgba(255, 206, 86, 0.6)',
+        'rgba(75, 192, 192, 0.6)',
+        'rgba(153, 102, 255, 0.6)'
       ],
-      backgroundColor: thresholds.map(t => t.color),
     }],
+    labels: [
+      'Current Temperature',
+      'Below Threshold 1',
+      'Between Thresholds 1 and 2',
+      'Between Thresholds 2 and 3',
+      'Above Threshold 3'
+    ]
   },
   options: {
-    cutoutPercentage: 80,
+    responsive: true,
+    maintainAspectRatio: false,
+    title: {
+      display: true,
+      text: 'Temperature Doughnut Chart'
+    },
     legend: {
-       position: 'bottom',
+      position: 'bottom'
     }
   }
 });
