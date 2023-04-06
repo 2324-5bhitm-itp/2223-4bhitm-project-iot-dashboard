@@ -132,9 +132,15 @@ kubectl apply -n <namespace> -f ./k8s-manifests/frontend.yaml
 kubectl apply -n <namespace> -f ./k8s-manifests/value-sim-database.yaml
 kubectl apply -n <namespace> -f ./k8s-manifests/value-sim.yaml
 -----
-
-
 ////
+ kubectl apply -f ./k8s-manifests/database.yaml
+kubectl apply -f ./k8s-manifests/backend.yaml
+kubectl apply -f ./k8s-manifests/frontend.yaml
+kubectl apply -f ./k8s-manifests/value-sim-database.yaml
+kubectl apply -f ./k8s-manifests/value-sim.yaml
+////
+
+
 ==== Pod löschen
 
 * Im Frontend auf Pods navigieren
@@ -143,7 +149,6 @@ image::images/img.png[]
 
 * Den leo-iot-frontend-xxxxxxxx Pod löschen
 * Er startet von selbst neu
-////
 
 
 Jetzt wurde erfolgreich das Backend und das Frontend auf deinen Namespace kopiert:
