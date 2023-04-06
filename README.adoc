@@ -144,3 +144,13 @@ und wann die anderen, ...
 === 21.03
 
 Doku für Namespace Änderung erstellt
+
+=== 22.03
+
+Horner Backend deployed
+
+* [*] https://student.cloud.htl-leonding.ac.at/p.horner/backend
+
+Horner Frontend deployed
+
+* [*] https://student.cloud.htl-leonding.ac.at/p.horner/frontend/dashboard
