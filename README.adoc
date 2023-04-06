@@ -6,7 +6,6 @@ Dieses Repository beinhaltet die Dokumentation zum Einrichten und Verwalten des 
 
 Das Projektzeil ist die Visualisierung der Raumklimata der HTL Leonding und ein Dashboard für die Admin Verwaltung der Sensorboxen des Leo IOT Dashboards.
 
-
 === UCD
 
 image::https://www.plantuml.com/plantuml/png/bP2nJiD038PtFuNLfNHeAzAj0oegRr2LtUHCSjBbhjW-A23UdKiW5KXa88lj-Fx__-IT6edbBi2yDJlfThq-1OhzdrMTkhNoK-POyz9vQeGwWFbnVuVBgGy2FnfQGl5DQ-YyS6q-HO2-eTW4niEh6dT8EdRlW9YLQrB6sRtNJC6_CL9HFfSI7VhuFIX7JO8FwSmwwosE-sluMyuYISP7rNyZHk5cmjsHqGWmOMwjiBOfEBmD9Dq5fO8FWAkYM-3g1ajJBN2BV3QEJg6VnyNcvsAuV8MJbo_uIVfyVc4PiWvrcr80-Af5ES3-7WUGIs0reFXOX-mOO5U2SnS-0G00[]
