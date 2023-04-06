@@ -140,7 +140,6 @@ kubectl apply -f ./k8s-manifests/value-sim-database.yaml
 kubectl apply -f ./k8s-manifests/value-sim.yaml
 ////
 
-
 ==== Pod löschen
 
 * Im Frontend auf Pods navigieren
