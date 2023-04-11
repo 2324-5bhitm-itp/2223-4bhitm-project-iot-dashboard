@@ -1,11 +1,10 @@
 = Leo IOT Dashboard
 
-Dieses Repository beinhaltet die Dokumentation zum Einrichten und Verwalten des IOT Dashboards der HTL Leonding mit Grafana. (Template Dashboard Anleitung siehe https://github.com/2223-4bhitm-itp/2223-4bhitm-project-iot-dashboard/tree/main/docs/deployment[hier]).
+Dieses Repository beinhaltet die Dokumentation zum Einrichten und Verwalten des IOT Dashboards der HTL Leonding mit ChartJS. (https://vm81.htl-leonding.ac.at/agiles/99-318/100-1528[YouTrack]).
 
 == Projektziel
 
 Das Projektzeil ist die Visualisierung der Raumklimata der HTL Leonding und ein Dashboard für die Admin Verwaltung der Sensorboxen des Leo IOT Dashboards.
-
 
 === UCD
 
