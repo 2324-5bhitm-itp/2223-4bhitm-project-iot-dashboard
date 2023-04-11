@@ -5,10 +5,10 @@ const temperatures = [20, 23, 25, 28, 30, 32, 30, 28, 25, 23, 20, 18];
 const canvasLine = document.getElementById('temperature_line_chart');
 canvasLine.width = 200;
 canvasLine.height = 200;
-const ctx = canvasLine.getContext('2d');
+const ctxLine = canvasLine.getContext('2d');
 
 // create a new chart object
-const chartLine = new Chart(ctx, {
+const chartLine = new Chart(ctxLine, {
   type: 'line',
   data: {
     labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
