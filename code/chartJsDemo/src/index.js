@@ -28,13 +28,13 @@
 //   );
 // })();
 
-
-
-// create an array of temperature data
+//template Temperatures
 const temperatures = [20, 23, 25, 28, 30, 32, 30, 28, 25, 23, 20, 18];
 
 // create a canvas element and get its context
 const canvas = document.getElementById('temperature_line_chart');
+canvas.width = 200;
+canvas.height = 200;
 const ctx = canvas.getContext('2d');
 
 // create a new chart object
@@ -62,33 +62,6 @@ const chartLine = new Chart(ctx, {
 });
 
 
-// create a canvas element and get its context
-const canvasDogg = document.getElementById('temperature_dogg_chart');
-const ctxDogg = canvasDogg.getContext('2d');
-
-// create a new chart object
-const chartPie = new Chart(ctxDogg, {
-  type: 'pie',
-  data: {
-    labels: ['today'],
-    datasets: [{
-      label: 'Temperature',
-      data: temperatures,
-      backgroundColor: 'rgba(255, 99, 132, 0.2)',
-      borderColor: 'rgba(255, 99, 132, 1)',
-      borderWidth: 1
-    }]
-  },
-  options: {
-    maintainAspectRatio: false,
-    scales: {
-      y: {
-        suggestedMin: 0,
-        suggestedMax: 40
-      }
-    }
-  }
-});
 
 // Set up the data
 const currentTemp = 25;
@@ -137,8 +110,7 @@ const chartDough = new Chart(ctxDough, {
     ]
   },
   options: {
-    responsive: true,
-    maintainAspectRatio: false,
+    maintainAspectRatio: true,
     title: {
       display: true,
       text: 'Temperature Doughnut Chart'
