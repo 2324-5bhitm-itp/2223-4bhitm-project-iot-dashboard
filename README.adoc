@@ -163,3 +163,8 @@ Horner Frontend deployed
 * Erstellen einer gh actions Pipeline ci-cd
 * Dashboard muss  neu gestaltet und implementiert werden
 * Ein Zeitplan wird von der Gruppe vorgelegt (GANTT) Wann wird was fertig!
+
+=== 11.04
+
+https://github.com/leo-iot/leo-iot-web/commit/2408eec6f16b3b5bf6f6325033c2a550ddab4082[Komponenten angepasst]
+
