@@ -168,3 +168,4 @@ Horner Frontend deployed
 
 https://github.com/leo-iot/leo-iot-web/commit/2408eec6f16b3b5bf6f6325033c2a550ddab4082[Komponenten angepasst]
 
+https://github.com/leo-iot/leo-iot-web/commit/d915c5a8d4f841a3df4a57fe7affbe090483605f[Blinkender Punkt für installierte Box hinzugefügt]
