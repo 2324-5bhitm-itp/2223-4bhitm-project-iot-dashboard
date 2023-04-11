@@ -1,41 +1,11 @@
-//import Chart from '../node_modules/chart.js/auto'
-
-// (async function() {
-//   const data = [
-//     { year: 2010, count: 10 },
-//     { year: 2011, count: 20 },
-//     { year: 2012, count: 15 },
-//     { year: 2013, count: 25 },
-//     { year: 2014, count: 22 },
-//     { year: 2015, count: 30 },
-//     { year: 2016, count: 28 },
-//   ];
-
-//   new Chart(
-//     document.getElementById('acquisitions'),
-//     {
-//       type: 'bar',
-//       data: {
-//         labels: data.map(row => row.year),
-//         datasets: [
-//           {
-//             label: 'Acquisitions by year',
-//             data: data.map(row => row.count)
-//           }
-//         ]
-//       }
-//     }
-//   );
-// })();
-
 //template Temperatures
 const temperatures = [20, 23, 25, 28, 30, 32, 30, 28, 25, 23, 20, 18];
 
 // create a canvas element and get its context
-const canvas = document.getElementById('temperature_line_chart');
-canvas.width = 200;
-canvas.height = 200;
-const ctx = canvas.getContext('2d');
+const canvasLine = document.getElementById('temperature_line_chart');
+canvasLine.width = 200;
+canvasLine.height = 200;
+const ctx = canvasLine.getContext('2d');
 
 // create a new chart object
 const chartLine = new Chart(ctx, {
@@ -83,7 +53,11 @@ const thresholds = [{
 ];
 
 // Create the chart
-const ctxDough = document.getElementById('temperature_dough_chart').getContext('2d');
+const canvasDough = document.getElementById('temperature_dough_chart');
+canvasDough.width = 200;
+canvasDough.height = 200;
+const ctxDough = canvasDough.getContext('2d');
+
 var threshold1 = 10;
 var threshold2 = 20;
 var threshold3 = 30;
