@@ -94,3 +94,20 @@ const chartDough = new Chart(ctxDough, {
     }
   }
 });
+
+// let count = 0;
+
+// while (true) {
+//   setTimeout(function() {
+//     addData(chartLine, 'new' + count, 36);
+//     count = count+1;
+//   }, 5000);
+// }
+
+function addData(chart, label, data) {
+  chart.data.labels.push(label);
+  chart.data.datasets.forEach((dataset) => {
+    dataset.data.push(data);
+  });
+  chart.update();
+}
