@@ -21,7 +21,7 @@ const chartLine = new Chart(ctxLine, {
     }]
   },
   options: {
-    maintainAspectRatio: false,
+    maintainAspectRatio: true,
     scales: {
       y: {
         suggestedMin: 0,
