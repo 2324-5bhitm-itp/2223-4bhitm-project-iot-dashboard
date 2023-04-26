@@ -1,0 +1,80 @@
+= Anleitung Änderungen in der LeoCloud deployen
+Moritz Eder
+:toc:
+:icons: font
+:sectnums:
+
+== Leocloud Dashboard
+
+* In der LeoCloud anmelden https://cloud.htl-leonding.ac.at/
+* Auf mein Dashboard klicken und den Anweisungen folgen
+
+-----
+kubectl proxy
+-----
+
+== Web
+
+.leo-iot-web Repo auschecken
+----
+git clone https://github.com/leo-iot/leo-iot-web.git
+----
+
+.auf k8s-deployment branch wechseln
+----
+git checkout feature/k8s-deployment
+----
+
+* Die gemachten Änderungen commiten und pushen, dann ->
+
+.Hier mit generiertem Github-Token anmelden
+----
+docker login ghcr.io
+----
+
+IMPORTANT: Auf Github schauen, ob man Rechte fürs uploaden hat
+
+.builden
+-----
+docker build -t ghcr.io/leo-iot/leo-iot-web-k8s/app:latest .
+-----
+
+.pushen
+-----
+docker push ghcr.io/leo-iot/leo-iot-web-k8s/app:latest
+-----
+
+== Core
+
+.leo-iot-core Repo auschecken
+----
+git clone https://github.com/leo-iot/leo-iot-core.git
+----
+
+.auf k8s-deployment branch wechseln
+----
+git checkout feature/k8s-deployment
+----
+
+Folgende Befehle ausführen:
+
+-----
+kubectl apply -f ./k8s-manifests/database.yaml
+kubectl apply -f ./k8s-manifests/backend.yaml
+kubectl apply -f ./k8s-manifests/frontend.yaml
+kubectl apply -f ./k8s-manifests/value-sim-database.yaml
+kubectl apply -f ./k8s-manifests/value-sim.yaml
+-----
+
+=== Pod löschen
+
+* Im Frontend auf Pods navigieren
+
+image::images/img.png[]
+
+* Den leo-iot-frontend-xxxxxxxx Pod löschen
+* Er startet von selbst neu
+
+Updates werden nun auch auf der LeoCloud angezeigt
+
+* https://student.cloud.htl-leonding.ac.at/<dein-namespace>/frontend/dashboard
