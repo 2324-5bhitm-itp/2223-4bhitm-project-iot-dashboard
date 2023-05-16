@@ -1,0 +1,34 @@
+### Post all rooms
+POST {{url}}/api/room/addMultipleRooms
+Content-Type: application/json
+
+< ./rooms.json
+
+### Post all sensorTypes
+POST {{url}}/api/valueType/addMultipleValueTypes
+Content-Type: application/json
+
+< ./valueTypes.json
+
+
+### Disable SendingValues
+POST {{url}}/api/config
+Content-Type: application/json
+
+{
+  "sendValues": false
+}
+
+### Enable SendingValues
+POST {{url}}/api/config
+Content-Type: application/json
+
+{
+  "sendValues": true
+}
+
+### Get all Rooms
+GET {{url}}/api/room
+
+### Delete Room
+DELETE {{url}}/api/room/133
