@@ -6,10 +6,12 @@ import { AppComponent } from './app.component';
 
 import { MqttService } from 'ngx-mqtt';
 import { MQTT_CONFIG } from './mqtt.config';
+import { MqttComponentComponent } from './mqtt-component/mqtt-component.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MqttComponentComponent
   ],
   imports: [
     BrowserModule,
