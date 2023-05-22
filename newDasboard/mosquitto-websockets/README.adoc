@@ -1,6 +1,14 @@
-# Eclipse Mosquitto with WebSockets
+# Eclipse Mosquitto with WebSockets Locally
 
-Extra layer over the eclipse-mosquitto Docker image with the following configuration changes:
+* install MQTT with brew
 
-* WebSockets listener enabled on port 9001.
-* Stdout logging for all log levels.
+----
+brew install mosquitto
+----
+
+- Start the MQTT server with
+----
+mosquitto -c /usr/local/etc/mosquitto/mosquitto.conf
+----
+
+* WebSockets listener enabled on port 8080.
