@@ -3,6 +3,7 @@ import { ModelService } from './model.service'
 import {mock} from "./model/mock-dashboard"
 import { DashboardModel } from './model'
 import { filter, map } from 'rxjs'
+import {MqttService} from "ngx-mqtt";
 
 interface AppComponentViewModel {
     name: string
@@ -19,7 +20,7 @@ export class AppComponent implements OnInit {
         name: "",
         value: 0
     }
-    constructor(private modelService: ModelService) {
+    constructor(private modelService: ModelService, private mqttService: MqttService) {
     }
     ngOnInit() {
         this.modelService.store
@@ -33,6 +34,16 @@ export class AppComponent implements OnInit {
 
         })
         mock()
+
+        this.mqttService.connect() // Connect to the MQTT broker
+
+        // Subscribe to a topic (optional)
+        this.mqttService.observe('myTopic').subscribe((message) => {
+            console.log('Received message:', message.payload.toString())
+        })
+        this.mqttService.state.subscribe((state) => {
+            console.log('Connection state:', state);
+        });
     }
 
 }
