@@ -4,22 +4,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MqttModule, IMqttServiceOptions } from 'ngx-mqtt';
-
-export const MQTT_SERVICE_OPTIONS: IMqttServiceOptions = {
-  hostname: 'localhost',
-  port: 8080,
-  connectOnCreate: true,  // Enable verbose logging
-  path: '/ws',
-  protocol: 'ws', // WebSocket protocol
-};
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
-    MqttModule.forRoot(MQTT_SERVICE_OPTIONS),
     AppRoutingModule
   ],
   providers: [],
