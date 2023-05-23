@@ -1,8 +1,8 @@
 import { TestBed } from '@angular/core/testing';
 
-import { MqttConnectionService } from './mqttConnectionService';
+import { MqttConnectionService } from './mqtt-connection.service';
 
-describe('MqttService', () => {
+describe('MqttConnectionService', () => {
   let service: MqttConnectionService;
 
   beforeEach(() => {

@@ -3,7 +3,6 @@ import {ModelService} from "../model.service";
 import {filter, map} from "rxjs";
 import {mock} from "../model/mock-dashboard";
 import {DashboardModel} from "../model";
-
 interface DashboardComponentViewModel {
   name: string
   value: number
@@ -20,6 +19,7 @@ export class DashboardComponent implements OnInit {
     name: "",
     value: 0
   }
+
   constructor(private modelService: ModelService) {
   }
   ngOnInit() {

@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MqttModule, IMqttServiceOptions } from 'ngx-mqtt';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
