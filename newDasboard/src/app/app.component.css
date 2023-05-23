@@ -1,0 +1,45 @@
+html, body {
+    font-family: "Open Sans", sans-serif;
+    color: white;
+    background-color: #232323;
+    width: 100vw;
+    height: 100vh;
+}
+
+h1 {
+    margin: 0;
+    padding: 1vw;
+    padding-bottom: 0.7vw;
+}
+
+hr {
+    height: 1px;
+    background-color: #f57c00;
+    border: none;
+}
+
+#hierarchy {
+    width: 40vw;
+    font-size: 1.5vw;
+    padding-top: 1vw;
+}
+.foldercontainer,
+.file,
+.noitems {
+    display: block;
+    padding: 5px 5px 5px 50px;
+}
+.folder {
+    cursor: pointer;
+}
+.noitems {
+    display: none;
+    pointer-events: none;
+}
+.folder:hover {
+    background-color: rgba(245, 124, 0, 0.54);
+}
+.folder:before,
+.file:before {
+    padding-right: 10px;
+}
