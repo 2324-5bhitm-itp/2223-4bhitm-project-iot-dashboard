@@ -7,7 +7,7 @@ import { MqttModule, IMqttServiceOptions } from 'ngx-mqtt';
 
 export const MQTT_SERVICE_OPTIONS: IMqttServiceOptions = {
   hostname: 'localhost',
-  port: 8080,
+  port: 9001,
   connectOnCreate: true,  // Enable verbose logging
   path: '/ws',
   protocol: 'ws', // WebSocket protocol
