@@ -29,7 +29,7 @@ function sendDummyData() {
         },
         {
             name: "edv8/temperature",
-            value: Math.round(Math.random() * MAX * 100) / 100
+            value: Math.round(Math.random() * MAX/2 * 100) / 100
         },
 
     ]
