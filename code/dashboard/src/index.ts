@@ -5,4 +5,4 @@ import "./component/dashboard-component"
 //import { mock } from "./model/mock-dashboard"
 import "./mqtt/mqtt"
 
-//mock()
+import "./mqtt/mqtt-faker"

@@ -18,7 +18,7 @@ export const mqttConfig: MqttConfig = {
     clientId: "iot-dashboard-demo",
     topic: "sensor"
 }
-let client: Client
+export let client: Client
 
 connect()
 setInterval(() => checkConnection(), 5000)
@@ -38,7 +38,6 @@ function onConnect() {
 }
 function onMessageArrived(message: Message) {
     const measurement: MeasurementValue = JSON.parse(message.payloadString)
-    console.log("message received", measurement)
     const current = store.getValue()
     const parts = measurement.name.split("/")
     const boxName = parts[0]
@@ -63,7 +62,6 @@ function onMessageArrived(message: Message) {
         }
         sensor.lastValueReceivedAt = new Date().getTime()
         sensor.value = measurement.value
-        console.log("sensor is", sensor)
     })
     store.next(next)
 }

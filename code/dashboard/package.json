@@ -15,11 +15,11 @@
     "typescript": "^5.0.4",
     "webpack": "^5.83.1",
     "webpack-cli": "^5.1.1",
-    "webpack-dev-server": "^4.15.0"
+    "webpack-dev-server": "^4.15.0",
+    "@types/lodash": "^4.14.194",
+    "@types/paho-mqtt": "^1.0.6"
   },
   "dependencies": {
-    "@types/lodash": "^4.14.194",
-    "@types/paho-mqtt": "^1.0.6",
     "immer": "^10.0.2",
     "lit-html": "^2.7.4",
     "lodash": "^4.17.21",

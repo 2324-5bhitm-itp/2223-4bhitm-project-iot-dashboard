@@ -40,15 +40,15 @@ spec:
             - containerPort: 9001
               protocol: TCP
               name: ws
-#          startupProbe:
-#            tcpSocket:
-#              port: 1883
-#            initialDelaySeconds: 20
-#            timeoutSeconds: 5
-#          livenessProbe:
-#            tcpSocket:
-#              port: 1883
-#            periodSeconds: 120
+          startupProbe:
+            tcpSocket:
+              port: 1883
+            initialDelaySeconds: 20
+            timeoutSeconds: 5
+          livenessProbe:
+            tcpSocket:
+              port: 9001
+            periodSeconds: 120
           command: ["/usr/sbin/mosquitto", "-c", "/mosquitto/config/mosquitto-conf.conf"]
           volumeMounts:
             - name: mosquitto-conf
