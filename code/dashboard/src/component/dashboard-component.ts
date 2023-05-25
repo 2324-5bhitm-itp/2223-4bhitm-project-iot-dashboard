@@ -57,18 +57,18 @@ function toViewModel(model: DashboardModel) {
 function boxTempate(box: BoxViewModel) {
     const rows = box.sensors.map(sensor => html`<tr><td>${sensor.name}</td><td class="w3-right">${sensor.value}</td></tr>`)
     return html`
-        <div class="w3-container">
+        <div class="w3-container w3-sans-serif">
             <div class="w3-panel">
                 <div class="w3-card box-table">
                     <table class="w3-table-all">
-                    <caption>Box ${box.name}</caption>
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th class="w3-right">Value</th>
-                        </tr>
-                    </thead>
-                    <tbody>${rows}</tbody>
+                        <caption class="w3-dark-grey">Box ${box.name}</caption>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th class="w3-right">Value</th>
+                            </tr>
+                        </thead>
+                        <tbody>${rows}</tbody>
                     </table>
                     </div>
                 </div>
