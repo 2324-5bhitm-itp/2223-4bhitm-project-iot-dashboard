@@ -24,7 +24,7 @@ function sendDummyData() {
             value: counter
         },
         {
-            name: "e58-1/cos",
+            name: "e58-1/co2",
             value: Math.round(Math.random() * MAX * 100) / 100
         },
         {
