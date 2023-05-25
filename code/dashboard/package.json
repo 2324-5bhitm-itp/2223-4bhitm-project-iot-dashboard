@@ -1,0 +1,29 @@
+{
+  "name": "iot-dashboard",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack serve --host=127.0.0.1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "html-webpack-plugin": "^5.5.1",
+    "ts-loader": "^9.4.3",
+    "typescript": "^5.0.4",
+    "webpack": "^5.83.1",
+    "webpack-cli": "^5.1.1",
+    "webpack-dev-server": "^4.15.0"
+  },
+  "dependencies": {
+    "@types/lodash": "^4.14.194",
+    "@types/paho-mqtt": "^1.0.6",
+    "immer": "^10.0.2",
+    "lit-html": "^2.7.4",
+    "lodash": "^4.17.21",
+    "paho-mqtt": "^1.1.0",
+    "rxjs": "^7.8.1"
+  }
+}
