@@ -33,8 +33,8 @@ function sendDummyData() {
         },
 
     ]
-    const randonIndexOfValuetoSend = getRandomInt(0, values.length - 1)
-    const value = values[randonIndexOfValuetoSend]
+    const randomIndexOfValuetoSend = getRandomInt(0, values.length - 1)
+    const value = values[randomIndexOfValuetoSend]
     const payload = JSON.stringify(value, undefined, 4)
     client.send(mqttConfig.topic, payload)
 }

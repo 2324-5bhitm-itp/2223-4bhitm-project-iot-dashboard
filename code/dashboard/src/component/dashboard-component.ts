@@ -1,9 +1,11 @@
 import {html, render} from "lit-html"
 import {DashboardModel, Sensor, store} from "../model"
-import { distinctUntilChanged, filter, map } from "rxjs"
+import { filter, map } from "rxjs"
 import _ from "lodash"
 import { styles } from "../styles/styles"
 import { mqttConfig } from "../mqtt"
+
+import "./connection-icon"
 
 interface BoxViewModel {
     name: string
@@ -22,7 +24,8 @@ class DashboardComponent extends HTMLElement {
         store
             .pipe(
                 filter(dashboard => !!dashboard),
-                map(dashboard => toViewModel(dashboard))
+                filter(model => !!model.boxes),
+                map(toViewModel)
             )
             .subscribe(vm => this.render(vm))
 
@@ -85,8 +88,9 @@ function template(vm: AppComponentViewModel)  {
         }
     </style>
     <div class="w3-container">
-        <h3 class="w3-panel w3-center">Listening to mqtt topic
-        "<span class="w3-text-green">${mqttConfig.topic}</span>" on host ws://${mqttConfig.host}:${mqttConfig.port}
+        <h3 class="w3-panel w3-center"><span class="w3-monospace">
+        <mqtt-connected-icon></mqtt-connected-icon>
+        ${mqttConfig.topic}</span> ws://${mqttConfig.host}:${mqttConfig.port}
         </h3>
     </div>
     <section>

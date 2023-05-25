@@ -11,10 +11,12 @@ export interface Sensor {
 }
 
 export interface DashboardModel {
+    readonly connected: boolean // are we connected to mqtt?
     readonly boxes: Map<string, SensorBox>
 }
 
 const initialState: DashboardModel = {
+    connected: false,
     boxes: new Map()
 }
 

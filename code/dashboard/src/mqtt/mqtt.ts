@@ -27,6 +27,7 @@ function connect() {
     console.log("connecting...")
     client.onMessageArrived = onMessageArrived
     client.onConnectionLost = onConnectionLost
+        setConnected(false)
         client.connect({
         onSuccess: onConnect,
         onFailure: onConnectError
@@ -35,14 +36,14 @@ function connect() {
 function onConnect() {
     console.log("connected to mqtt", mqttConfig)
     client.subscribe(mqttConfig.topic)
+    setConnected(true)
 }
 function onMessageArrived(message: Message) {
     const measurement: MeasurementValue = JSON.parse(message.payloadString)
-    const current = store.getValue()
     const parts = measurement.name.split("/")
     const boxName = parts[0]
     const sensorName = parts[1]
-    const next = produce(current, model => {
+    const next = produce(store.getValue(), model => {
         let box = model.boxes.get(boxName)
         if (!box) {
             box = {
@@ -67,6 +68,7 @@ function onMessageArrived(message: Message) {
 }
 function checkConnection() {
     if (!client || !client.isConnected()) {
+        setConnected(false)
         client = null
         console.log("not connected")
         connect()
@@ -74,8 +76,15 @@ function checkConnection() {
 }
 function onConnectionLost() {
     console.log("connection lost", client.isConnected())
+    setConnected(false)
 }
-function onConnectError(e: ErrorWithInvocationContext): void {
+function onConnectError(e: ErrorWithInvocationContext) {
     console.log("failed to connect: ", e)
 }
+function setConnected(connected: boolean) {
+    const next = produce(store.getValue(), model => {
+        model.connected = connected
+    })
+    store.next(next)
 
+}
