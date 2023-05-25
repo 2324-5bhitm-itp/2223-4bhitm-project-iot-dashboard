@@ -21,7 +21,7 @@ export const mqttConfig: MqttConfig = {
 let client: Client
 
 connect()
-setInterval(() => checkConnection(), 2000)
+setInterval(() => checkConnection(), 5000)
 function connect() {
     client = new Client(mqttConfig.host, mqttConfig.port, mqttConfig.clientId)
     console.log("connecting...")
@@ -65,17 +65,13 @@ function onMessageArrived(message: Message) {
         sensor.value = measurement.value
         console.log("sensor is", sensor)
     })
-    console.log("submit", next)
     store.next(next)
 }
 function checkConnection() {
-    console.log("check connection...")
     if (!client || !client.isConnected()) {
         client = null
         console.log("not connected")
         connect()
-    } else {
-        console.log("connection is OK")
     }
 }
 function onConnectionLost() {

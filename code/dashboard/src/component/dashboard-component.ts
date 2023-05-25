@@ -1,6 +1,6 @@
 import {html, render} from "lit-html"
 import {DashboardModel, Sensor, store} from "../model"
-import { filter, map } from "rxjs"
+import { distinctUntilChanged, filter, map } from "rxjs"
 import _ from "lodash"
 import { styles } from "../styles/styles"
 import { mqttConfig } from "../mqtt"
@@ -34,7 +34,6 @@ class DashboardComponent extends HTMLElement {
 customElements.define("dashboard-component", DashboardComponent)
 
 function toViewModel(model: DashboardModel) {
-    console.log("toViewModel: ", model)
     const vm: AppComponentViewModel = {
         boxes: []
     }

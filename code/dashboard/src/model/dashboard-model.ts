@@ -1,17 +1,17 @@
 import { BehaviorSubject } from "rxjs"
 
 export interface SensorBox {
-    name: string
-    sensors: Map<string, Sensor>
+    readonly name: string
+    readonly sensors: Map<string, Sensor>
 }
 export interface Sensor {
-    name: string
-    lastValueReceivedAt: number
-    value: number
+    readonly name: string
+    readonly lastValueReceivedAt: number
+    readonly value: number
 }
 
 export interface DashboardModel {
-    boxes: Map<string, SensorBox>
+    readonly boxes: Map<string, SensorBox>
 }
 
 const initialState: DashboardModel = {
