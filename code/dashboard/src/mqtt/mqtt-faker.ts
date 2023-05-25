@@ -4,7 +4,7 @@ import { Message } from "paho-mqtt"
 import { client, mqttConfig } from "./mqtt"
 import { MeasurementValue } from "../model"
 
-setInterval(send, 2000)
+setInterval(send, 250)
 
 let counter = 0
 function send() {
@@ -15,7 +15,7 @@ function send() {
     }
 }
 function sendDummyData() {
-    const MAX = 50
+    const MAX = 40
     counter++
     counter %= MAX 
     const values: MeasurementValue[] = [
@@ -24,9 +24,14 @@ function sendDummyData() {
             value: counter
         },
         {
-            name: "e58-1/dummy",
+            name: "e58-1/cos",
             value: Math.round(Math.random() * MAX * 100) / 100
         },
+        {
+            name: "edv8/temperature",
+            value: Math.round(Math.random() * MAX * 100) / 100
+        },
+
     ]
     const randonIndexOfValuetoSend = getRandomInt(0, values.length - 1)
     const value = values[randonIndexOfValuetoSend]

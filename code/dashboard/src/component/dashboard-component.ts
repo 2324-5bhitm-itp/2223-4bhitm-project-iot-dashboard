@@ -45,25 +45,29 @@ function toViewModel(model: DashboardModel) {
         box.sensors.forEach((sensor, sensorName) => {
             boxModel.sensors.push(_.clone(sensor))
         })
+        boxModel.sensors.sort((l, r) => l.name.toLowerCase().localeCompare(r.name.toLowerCase()))
         vm.boxes.push(boxModel)
     })
+    vm.boxes.sort((l, r) => l.name.toLowerCase().localeCompare(r.name.toLowerCase()))
     return vm
 }
 function boxTempate(box: BoxViewModel) {
     const rows = box.sensors.map(sensor => html`<tr><td>${sensor.name}</td><td class="w3-right">${sensor.value}</td></tr>`)
     return html`
         <div class="w3-container">
-            <div class="w3-card box-table">
-                <table class="w3-table-all">
-                <caption>Box ${box.name}</caption>
-                <thead>
-                    <tr>
-                        <td>Name</td>
-                        <td class="w3-right">Value</td>
-                    </tr>
-                </thead>
-                <tbody>${rows}</tbody>
-                </table>
+            <div class="w3-panel">
+                <div class="w3-card box-table">
+                    <table class="w3-table-all">
+                    <caption>Box ${box.name}</caption>
+                    <thead>
+                        <tr>
+                            <td>Name</td>
+                            <td class="w3-right">Value</td>
+                        </tr>
+                    </thead>
+                    <tbody>${rows}</tbody>
+                    </table>
+                    </div>
                 </div>
             </div>
         </div>
