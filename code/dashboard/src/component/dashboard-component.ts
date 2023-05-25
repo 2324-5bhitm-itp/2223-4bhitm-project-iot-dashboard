@@ -64,8 +64,8 @@ function boxTempate(box: BoxViewModel) {
                     <caption>Box ${box.name}</caption>
                     <thead>
                         <tr>
-                            <td>Name</td>
-                            <td class="w3-right">Value</td>
+                            <th>Name</th>
+                            <th class="w3-right">Value</th>
                         </tr>
                     </thead>
                     <tbody>${rows}</tbody>
