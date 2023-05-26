@@ -1,7 +1,7 @@
 /**
  * paho javascript client, see https://github.com/eclipse/paho.mqtt.javascript#readme
  */
-import {Client, ErrorWithInvocationContext, Message} from "paho-mqtt"
+import {Client, ErrorWithInvocationContext, MQTTError, Message} from "paho-mqtt"
 import { MeasurementValue } from "../model"
 import { store } from "../model"
 import { produce } from "immer"
@@ -74,8 +74,8 @@ function checkConnection() {
         connect()
     }
 }
-function onConnectionLost() {
-    console.log("connection lost", client.isConnected())
+function onConnectionLost(error: MQTTError) {
+    console.log("connection lost", error)
     setConnected(false)
 }
 function onConnectError(e: ErrorWithInvocationContext) {

@@ -1,10 +1,9 @@
 /** submit demo values for simulating a real box */
 
-import { Message } from "paho-mqtt"
 import { client, mqttConfig } from "./mqtt"
 import { MeasurementValue } from "../model"
 
-setInterval(send, 250)
+setInterval(send, 100)
 
 let counter = 0
 function send() {
@@ -15,28 +14,23 @@ function send() {
     }
 }
 function sendDummyData() {
-    const MAX = 40
-    counter++
-    counter %= MAX 
-    const values: MeasurementValue[] = [
-        {
-            name: "e58-1/counter",
-            value: counter
-        },
-        {
-            name: "e58-1/co2",
-            value: Math.round(Math.random() * MAX * 100) / 100
-        },
-        {
-            name: "edv8/temperature",
-            value: Math.round(Math.random() * MAX/2 * 100) / 100
-        },
-
-    ]
-    const randomIndexOfValuetoSend = getRandomInt(0, values.length - 1)
-    const value = values[randomIndexOfValuetoSend]
-    const payload = JSON.stringify(value, undefined, 4)
+    const name = `${createRandomBoxName()}/${createRandomSensorName()}`
+    const value = Math.round(Math.random() * 50 * 100) / 100
+    const val: MeasurementValue = {
+        name,
+        value
+    }
+    const payload = JSON.stringify(val, undefined, 4)
     client.send(mqttConfig.topic, payload)
+}
+function createRandomBoxName() {
+    const roomNumber = Math.floor(Math.random() * 12) + 10
+    return `e-${roomNumber}`
+}
+function createRandomSensorName() {
+    const names = ["co2", "humidity", "temperature", "air-pressure"]
+    const index = getRandomInt(0, names.length - 1)
+    return names[index]
 }
 /**
  * Returns a random integer between min (inclusive) and max (inclusive).

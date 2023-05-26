@@ -59,8 +59,8 @@ function boxTempate(box: BoxViewModel) {
     return html`
         <div class="w3-container w3-sans-serif">
             <div class="w3-panel">
-                <div class="w3-card box-table">
-                    <table class="w3-table-all">
+                <div class="">
+                    <table class="w3-table-all box-table">
                         <caption class="w3-dark-grey">Box ${box.name}</caption>
                         <thead>
                             <tr>
@@ -81,10 +81,24 @@ function template(vm: AppComponentViewModel)  {
     return html`
     ${styles}
     <style>
+        .box-container {
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .spring {
+            flex-grow: 1;
+        }
         .box-table {
-            width: 20rem;
-            margin-left: auto;
-            margin-right: auto;
+            margin: auto;
+            width: auto;
+        }
+        table {
+            table-layout: auto;
+        }
+        th, td {
+            width: auto;
         }
     </style>
     <div class="w3-container">
@@ -94,7 +108,9 @@ function template(vm: AppComponentViewModel)  {
         </h3>
     </div>
     <section>
-    ${boxes}
+        <div class="box-container">
+            ${boxes}
+        </div>
     </section>
     `
 }

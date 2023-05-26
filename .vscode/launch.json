@@ -9,7 +9,7 @@
             "request": "launch",
             "name": "Chrome",
             "url": "http://127.0.0.1:4200",
-            "webRoot": "${workspaceFolder}/dashboard"
+            "webRoot": "${workspaceFolder}/code/dashboard"
         }
     ]
 }
