@@ -187,4 +187,3 @@ Data Model:
 
 image::docs/img/Dashboard architecture.png[]
 
-
