@@ -61,7 +61,7 @@ function boxTempate(box: BoxViewModel) {
             <div class="w3-panel">
                 <div class="">
                     <table class="w3-table-all box-table">
-                        <caption class="w3-dark-grey">Box ${box.name}</caption>
+                        <caption style="color: white; background-color: #f57c00">Box ${box.name}</caption>
                         <thead>
                             <tr>
                                 <th>Name</th>
@@ -96,13 +96,14 @@ function template(vm: AppComponentViewModel)  {
         }
         table {
             table-layout: auto;
+            border: solid #f57c00 1px;
         }
         th, td {
             width: auto;
         }
     </style>
     <div class="w3-container">
-        <h3 class="w3-panel w3-center"><span class="w3-monospace">
+        <h3 class="w3-panel w3-center" style="color: white"><span class="w3-monospace">
         <mqtt-connected-icon></mqtt-connected-icon>
         ${mqttConfig.topic}</span> ws://${mqttConfig.host}:${mqttConfig.port}
         </h3>
