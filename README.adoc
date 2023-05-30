@@ -212,7 +212,7 @@ User: leo-user oder leo-student
 * ws
     - Port: 9418
 
-=== Systemarchitektur
+=== Systemarchitektur (Zum Vergleich beide)
 
 * Prof. Aberger
 
