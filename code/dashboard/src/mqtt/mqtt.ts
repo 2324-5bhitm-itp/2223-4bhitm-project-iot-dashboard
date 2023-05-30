@@ -9,29 +9,46 @@ import { produce } from "immer"
 interface MqttConfig {
     host: string
     port: number
+    path: string
     clientId: string
     topic: string
 }
-export const mqttConfig: MqttConfig = {
-    host: "localhost",
-    port: 9001,
-    clientId: "iot-dashboard-demo",
-    topic: "sensor"
+
+interface ConnectionOptions {
+
+    userName: string
+    password: string
+    /*onSuccess: onConnect,
+    onFailure: onConnectError*/
 }
+export const mqttConfig: MqttConfig = {
+    host: "mqtt.htl-leonding.ac.at",
+    port: 9418,
+    clientId: "iot-dashboard-demo",
+    path: "/ws",
+    topic: "eg"
+}
+
+export const mqttConnectionOptions : ConnectionOptions ={
+    userName: "leo-student",
+    password: "sTuD@w0rck"
+}
+
 export let client: Client
 
 connect()
 setInterval(() => checkConnection(), 5000)
 function connect() {
-    client = new Client(mqttConfig.host, mqttConfig.port, mqttConfig.clientId)
+    client = new Client(mqttConfig.host, mqttConfig.port, mqttConfig.path, mqttConfig.clientId)
     console.log("connecting...")
     client.onMessageArrived = onMessageArrived
     client.onConnectionLost = onConnectionLost
         setConnected(false)
         client.connect({
-        onSuccess: onConnect,
-        onFailure: onConnectError
-    })
+            onSuccess: onConnect,
+            onFailure: onConnectError,
+            userName: "leo-student",
+            password: "sTuD@w0rck"})
 }
 function onConnect() {
     console.log("connected to mqtt", mqttConfig)
