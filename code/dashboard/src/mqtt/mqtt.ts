@@ -21,6 +21,10 @@ interface ConnectionOptions {
     /*onSuccess: onConnect,
     onFailure: onConnectError*/
 }
+
+
+export let client: Client
+
 export const mqttConfig: MqttConfig = {
     host: "mqtt.htl-leonding.ac.at",
     port: 9418,
@@ -28,9 +32,6 @@ export const mqttConfig: MqttConfig = {
     path: "/ws",
     topic: "eg"
 }
-
-
-export let client: Client
 
 export const mqttConnectionOptions : ConnectionOptions ={
     userName: "leo-student",
