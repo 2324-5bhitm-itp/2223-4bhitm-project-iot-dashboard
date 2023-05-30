@@ -1,1 +1,1 @@
-export {mqttConfig} from "./mqtt"
+export {mqttConfig,mqttConnectionOptions} from "./mqtt"
