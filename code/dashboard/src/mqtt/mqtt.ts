@@ -29,12 +29,13 @@ export const mqttConfig: MqttConfig = {
     topic: "eg"
 }
 
+
+export let client: Client
+
 export const mqttConnectionOptions : ConnectionOptions ={
     userName: "leo-student",
     password: "sTuD@w0rck"
 }
-
-export let client: Client
 
 connect()
 setInterval(() => checkConnection(), 5000)
