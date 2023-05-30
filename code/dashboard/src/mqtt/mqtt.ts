@@ -58,7 +58,7 @@ function onConnect() {
     setConnected(true)
 }
 function onMessageArrived(message: Message) {
-    console.log(message)
+    console.log("Message", message)
     const measurement: MeasurementValue = JSON.parse(message.payloadString)
     const parts = measurement.name.split("/")
     const boxName = parts[0]
