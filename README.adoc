@@ -185,5 +185,12 @@ Projekt eingecheckt
 
 Data Model:
 
-image::docs/img/Dashboard architecture.png[]
+image::docs/img/Dashboard_data_model.png[]
 
+=== 30.05
+
+Besprechung:
+
+* Box neu konfigurieren an neuen mqtt Server
+* Architektur zeichne für Dokumentation
+* Von neuem mqtt Server Daten anzeigen von Box
