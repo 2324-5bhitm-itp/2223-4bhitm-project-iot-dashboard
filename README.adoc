@@ -194,3 +194,21 @@ Besprechung:
 * Box neu konfigurieren an neuen mqtt Server
 * Architektur zeichne für Dokumentation
 * Von neuem mqtt Server Daten anzeigen von Box
+
+==== MQTT Connections
+
+Host: mqtt.htl-leonding.ac.at
+
+User: leo-user oder leo-student
+
+* mqtt secure
+    - Port 8883
+    - Encryption (tls) checked
+* mqtt
+    - Port: 1883
+* ws secure
+    - Port: 5055
+    - Encryption (tls) checked
+* ws
+    - Port: 9418
+
