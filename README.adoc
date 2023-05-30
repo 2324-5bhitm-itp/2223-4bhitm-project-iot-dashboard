@@ -212,3 +212,12 @@ User: leo-user oder leo-student
 * ws
     - Port: 9418
 
+=== Systemarchitektur
+
+* Prof. Aberger
+
+image::docs/img/SystemarchitekturAberger.png[]
+
+* Keynote
+
+image::docs/img/Systemarchitektur01.png[]
