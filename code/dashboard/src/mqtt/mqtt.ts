@@ -30,7 +30,7 @@ export const mqttConfig: MqttConfig = {
     port: 9418,
     clientId: "iot-dashboard-demo",
     path: "/ws",
-    topic: "eg"
+    topic: "eg/e58_2/temperature/#"
 }
 
 export const mqttConnectionOptions : ConnectionOptions ={
@@ -49,8 +49,8 @@ function connect() {
         client.connect({
             onSuccess: onConnect,
             onFailure: onConnectError,
-            userName: "leo-student",
-            password: "sTuD@w0rck"})
+            userName: mqttConnectionOptions.userName,
+            password: mqttConnectionOptions.password})
 }
 function onConnect() {
     console.log("connected to mqtt", mqttConfig)
@@ -60,7 +60,8 @@ function onConnect() {
 function onMessageArrived(message: Message) {
     console.log("Message", message)
     const measurement: MeasurementValue = JSON.parse(message.payloadString)
-    const parts = measurement.name.split("/")
+    console.log(measurement.value)
+    const parts = message.destinationName.split("/")
     const boxName = parts[0]
     const sensorName = parts[1]
     const next = produce(store.getValue(), model => {
@@ -87,12 +88,15 @@ function onMessageArrived(message: Message) {
     store.next(next)
 }
 function checkConnection() {
+    //console.log(client.isConnected());
     if (!client || !client.isConnected()) {
         setConnected(false)
         client = null
         console.log("not connected")
         connect()
-    }
+    } else {
+        console.log("checkConnection ok")
+    } 
 }
 function onConnectionLost(error: MQTTError) {
     console.log("connection lost", error)
@@ -100,6 +104,7 @@ function onConnectionLost(error: MQTTError) {
 }
 function onConnectError(e: ErrorWithInvocationContext) {
     console.log("failed to connect: ", e)
+    setConnected(false)
 }
 function setConnected(connected: boolean) {
     const next = produce(store.getValue(), model => {
