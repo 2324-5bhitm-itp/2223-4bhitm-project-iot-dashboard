@@ -111,5 +111,4 @@ function setConnected(connected: boolean) {
         model.connected = connected
     })
     store.next(next)
-
 }
