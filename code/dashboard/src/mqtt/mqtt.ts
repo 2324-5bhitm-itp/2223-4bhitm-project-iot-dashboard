@@ -1,7 +1,7 @@
 /**
  * paho javascript client, see https://github.com/eclipse/paho.mqtt.javascript#readme
  */
-import {Client, ErrorWithInvocationContext, MQTTError, Message} from "paho-mqtt"
+import { Client, ErrorWithInvocationContext, MQTTError, Message } from "paho-mqtt"
 import { MeasurementValue } from "../model"
 import { store } from "../model"
 import { produce } from "immer"
@@ -30,10 +30,10 @@ export const mqttConfig: MqttConfig = {
     port: 9418,
     clientId: "iot-dashboard-demo",
     path: "/ws",
-    topic: "eg/e58_2/temperature/#"
+    topic: "#"
 }
 
-export const mqttConnectionOptions : ConnectionOptions ={
+export const mqttConnectionOptions: ConnectionOptions = {
     userName: "leo-student",
     password: "sTuD@w0rck"
 }
@@ -45,47 +45,58 @@ function connect() {
     console.log("connecting...")
     client.onMessageArrived = onMessageArrived
     client.onConnectionLost = onConnectionLost
-        setConnected(false)
-        client.connect({
-            onSuccess: onConnect,
-            onFailure: onConnectError,
-            userName: mqttConnectionOptions.userName,
-            password: mqttConnectionOptions.password})
+    setConnected(false)
+    client.connect({
+        onSuccess: onConnect,
+        onFailure: onConnectError,
+        userName: mqttConnectionOptions.userName,
+        password: mqttConnectionOptions.password
+    })
 }
 function onConnect() {
     console.log("connected to mqtt", mqttConfig)
-    client.subscribe(mqttConfig.topic)
+    client.subscribe("#")
     setConnected(true)
 }
 function onMessageArrived(message: Message) {
     console.log("Message", message)
-    const measurement: MeasurementValue = JSON.parse(message.payloadString)
-    console.log(measurement.value)
-    const parts = message.destinationName.split("/")
-    const boxName = parts[0]
-    const sensorName = parts[1]
-    const next = produce(store.getValue(), model => {
-        let box = model.boxes.get(boxName)
-        if (!box) {
-            box = {
-                name: boxName,
-                sensors: new Map()
+    const json = message.payloadString.replace("\\", "")
+    console.log("parsing json", json)
+    let measurement: MeasurementValue
+    try {
+        measurement = JSON.parse(json)
+    } catch (e) {
+        console.error(e.message)
+    }
+    if (measurement) {
+        const parts = message.destinationName.split("/")
+        const boxName = `${parts[0]}/${parts[1]}`
+        console.log(boxName)
+        const sensorName = parts[2]
+        const next = produce(store.getValue(), model => {
+            let box = model.boxes.get(boxName)
+            if (!box) {
+                box = {
+                    name: boxName,
+                    sensors: new Map()
+                }
+                model.boxes.set(boxName, box)
             }
-            model.boxes.set(boxName, box)
-        }
-        let sensor = box.sensors.get(sensorName)
-        if (!sensor) {
-            sensor = {
-                name: sensorName,
-                lastValueReceivedAt: 0,
-                value: 0  
+            let sensor = box.sensors.get(sensorName)
+            if (!sensor) {
+                sensor = {
+                    name: sensorName,
+                    lastValueReceivedAt: 0,
+                    value: 0
+                }
+                box.sensors.set(sensorName, sensor)
             }
-            box.sensors.set(sensorName, sensor)
-        }
-        sensor.lastValueReceivedAt = new Date().getTime()
-        sensor.value = measurement.value
-    })
-    store.next(next)
+            sensor.lastValueReceivedAt = new Date().getTime()
+            sensor.value = measurement.value
+        })
+        store.next(next)
+    }
+
 }
 function checkConnection() {
     //console.log(client.isConnected());
@@ -96,7 +107,7 @@ function checkConnection() {
         connect()
     } else {
         console.log("checkConnection ok")
-    } 
+    }
 }
 function onConnectionLost(error: MQTTError) {
     console.log("connection lost", error)

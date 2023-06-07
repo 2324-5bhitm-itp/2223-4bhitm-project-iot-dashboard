@@ -1,5 +1,5 @@
 export interface MeasurementValue {
-    timestamp: string,
+    timestamp: number,
     value: number
 }
 
