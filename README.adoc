@@ -220,4 +220,4 @@ image::docs/img/SystemarchitekturAberger.png[]
 
 * Keynote
 
-image::docs/img/Systemarchitektur01.png[]
+image::docs/img/Systemacrchitektur02.png[]
