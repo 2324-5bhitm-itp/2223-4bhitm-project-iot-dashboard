@@ -15,11 +15,8 @@ interface MqttConfig {
 }
 
 interface ConnectionOptions {
-
     userName: string
     password: string
-    /*onSuccess: onConnect,
-    onFailure: onConnectError*/
 }
 
 
