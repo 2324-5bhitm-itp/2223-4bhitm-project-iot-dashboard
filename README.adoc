@@ -220,7 +220,7 @@ image::docs/img/SystemarchitekturAberger.png[]
 
 * Keynote
 
-image::docs/img/Systemacrchitektur02.png[]
+image::docs/img/Systemarchitektur03.png[]
 
 === 13.06
 
