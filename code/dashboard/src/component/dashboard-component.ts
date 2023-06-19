@@ -55,7 +55,14 @@ function toViewModel(model: DashboardModel) {
     return vm
 }
 function boxTempate(box: BoxViewModel) {
-    const rows = box.sensors.map(sensor => html`<tr><td>${sensor.name}</td><td class="w3-right">${sensor.value}</td></tr>`)
+    const rows = box.sensors.map(sensor => html`
+    <tr><td>${sensor.name}</td>
+    <td class="w3-right">${sensor.name === 'temperature' ? `${sensor.value} °C` :
+     sensor.name === 'co2' ? `${sensor.value} ppm` :
+      sensor.name === 'humidity' ? `${sensor.value} g/m³` :
+       sensor.name === 'pressure' ? `${sensor.value} hPa` :
+        sensor.value}</td></tr>`);
+
     return html`
         <div class="w3-container w3-sans-serif">
             <div class="w3-panel">
