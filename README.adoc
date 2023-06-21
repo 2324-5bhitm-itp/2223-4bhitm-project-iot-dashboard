@@ -231,3 +231,4 @@ Bug 1:
 Bug 2:
 
 * Einheiten werden bei den mqtt Werten noch nicht mitgeliefert, d.h. man weiß nicht welcher Wert zu welcher Einheit gehört.
+

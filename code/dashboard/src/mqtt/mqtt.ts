@@ -56,8 +56,16 @@ function onConnect() {
     setConnected(true)
 }
 function onMessageArrived(message: Message) {
+    try {
+        processMessageArrived(message)
+    } catch(e) {
+        console.error(e.message)
+    }
+}
+
+function processMessageArrived(message: Message) {
     console.log("Message", message)
-    const json = message.payloadString.replace("\\", "")
+    const json = message.payloadString
     console.log("parsing json", json)
     let measurement: MeasurementValue
     try {
