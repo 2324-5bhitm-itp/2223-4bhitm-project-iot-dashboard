@@ -1,21 +1,20 @@
-import { html, render } from "lit-html";
-import Chart from 'chart.js/auto';
+import Chart from 'chart.js/auto'
 
 class ChartComponent extends HTMLElement {
     constructor() {
-        super();
-        this.attachShadow({ mode: 'open' });
+        super()
+        this.attachShadow({ mode: 'open' })
     }
 
     connectedCallback() {
-        this.render();
-        this.firstUpdated();
+        this.render()
+        this.firstUpdated()
     }
 
     firstUpdated() {
-        const canvas = this.shadowRoot.querySelector('#myDoughChart');
-        const ctx = canvas.getContext('2d');
-        let curval = 30;
+        const canvas = this.shadowRoot.querySelector('#myDoughChart')
+        const ctx = canvas.getContext('2d')
+        let curval = 30
         this.chart = new Chart(ctx, {
             type: 'doughnut',
             data: {
@@ -38,14 +37,14 @@ class ChartComponent extends HTMLElement {
                 responsive: true,
                 cutout: '70%',
             }
-        });
+        })
     }
 
     render() {
         this.shadowRoot.innerHTML = `
       <style>
         :host {
-          display: block;
+          display: block
         }
       </style>
       <div>
@@ -55,4 +54,4 @@ class ChartComponent extends HTMLElement {
     }
 }
 
-customElements.define('doughchart-component', ChartComponent);
+customElements.define('doughchart-component', ChartComponent)
