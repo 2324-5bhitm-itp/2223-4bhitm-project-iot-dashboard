@@ -10,16 +10,17 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/lodash": "^4.14.194",
+    "@types/paho-mqtt": "^1.0.6",
     "html-webpack-plugin": "^5.5.1",
     "ts-loader": "^9.4.3",
     "typescript": "^5.0.4",
     "webpack": "^5.83.1",
     "webpack-cli": "^5.1.1",
-    "webpack-dev-server": "^4.15.0",
-    "@types/lodash": "^4.14.194",
-    "@types/paho-mqtt": "^1.0.6"
+    "webpack-dev-server": "^4.15.0"
   },
   "dependencies": {
+    "chart.js": "^4.3.0",
     "immer": "^10.0.2",
     "lit-html": "^2.7.4",
     "lodash": "^4.17.21",
