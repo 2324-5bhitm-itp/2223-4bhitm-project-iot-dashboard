@@ -66,6 +66,7 @@ function boxTemplate(box: BoxViewModel) {
 
     const rows = box.sensors
         .map(sensor => {
+
                 // Neopixel Color Converter
                 function getColorSquare(valueString) {
                     if (sensor.name !== "neopixel") return '';
