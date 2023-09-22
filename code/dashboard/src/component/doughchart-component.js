@@ -1,4 +1,4 @@
-import Chart from 'chart.js/auto'
+/*import Chart from 'chart.js/auto'
 
 class ChartComponent extends HTMLElement {
     constructor() {
@@ -55,3 +55,4 @@ class ChartComponent extends HTMLElement {
 }
 
 customElements.define('doughchart-component', ChartComponent)
+*/
