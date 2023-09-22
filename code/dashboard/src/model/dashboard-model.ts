@@ -23,7 +23,7 @@ const initialState: DashboardModel = {
 export const store = new BehaviorSubject<DashboardModel>(initialState)
 
 export const unitOfSensorName: Record<string, string> = {
-    "humidity": "g/m³",
+    "humidity": "%",
     "temperature": "°C",
     "co2": "ppm",
     "pressure": "hPa",
