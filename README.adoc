@@ -1,10 +1,28 @@
 = Leo IOT Dashboard
 
-Dieses Repository beinhaltet die Dokumentation zum Einrichten und Verwalten des IOT Dashboards der HTL Leonding mit ChartJS. (https://vm81.htl-leonding.ac.at/agiles/99-318/100-1528[YouTrack]).
+Leo IOT is a project created to measure various real world data such as temperature and air moisture which are collected from sensor boxes placed in the rooms of the school building. The application will display the data on a dashboard and a 3D-Modell.
 
-== Projektziel
+== Getting Started
 
-Das Projektzeil ist die Visualisierung der Raumklimata der HTL Leonding und ein Dashboard für die Admin Verwaltung der Sensorboxen des Leo IOT Dashboards.
+. Clone Repository
+
+-----
+git clone https://github.com/2223-4bhitm-itp/2223-4bhitm-project-iot-dashboard.git
+-----
+
+. Start LIT-HTML Frontend
+
+----
+cd code/dashboard
+----
+
+----
+npm i
+----
+
+----
+npm start
+----
 
 === UCD
 
