@@ -1,11 +1,15 @@
-= Übersicht Dokumentation
+= IOT DASHBOARD
+
+*Leo IOT erfasst Temperatur und Luftfeuchtigkeit in Schulgebäuden und zeigt die Daten in einem Dashboard an.*
+
+== Nutzen
+
+* Übersicht über Raumklimata
+
+* Aufmerksamkeit für schlechte Luftqualität
+
+* Optimales Lernklima in der Klasse
 
 === UCD
 
 https://2223-4bhitm-itp.github.io/2223-4bhitm-project-iot-dashboard[Dokumentation]
-
-=== Übersicht Telegraf
-
-siehe https://github.com/2223-4bhitm-itp/2223-4bhitm-project-iot-dashboard/blob/main/docs/asciidocs/telegraf.adoc[telegraf.adoc]
-
-
