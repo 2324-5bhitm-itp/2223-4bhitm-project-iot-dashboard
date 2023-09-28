@@ -5,8 +5,6 @@ BUILD_DIR="gh-pages"
 rm -rf -v $BUILD_DIR # else plantuml diagrams won't be rebuilt
 # do not copy revealjs
 mkdir -p $BUILD_DIR
-cp -r -p -v asciidocs/docinfo.html $BUILD_DIR
-cp -r -p -v asciidocs/.nojekyll $BUILD_DIR
 cp -r -p -v asciidocs/index.adoc $BUILD_DIR
 cp -r -p -v asciidocs/*.adoc $BUILD_DIR
 for d in $(find ./asciidocs -maxdepth 1 -mindepth 1 -type d); do
