@@ -98,7 +98,7 @@ function boxTemplate(box: BoxViewModel) {
     return html`
         <div class="w3-container w3-sans-serif">
             <div class="w3-panel">
-                <div class="">
+                <div class="room">
                     <table class="w3-table-all box-table">
                         <caption style="color: white; background-color: #f57c00; text-align: left">
                             <p style="margin: 5%">Floor: ${splitMqttName[0].toUpperCase()}</p>
@@ -139,15 +139,23 @@ function template(vm: AppComponentViewModel) {
             .box-table {
                 margin: auto;
                 width: auto;
+                border: none;
             }
 
             table {
                 table-layout: auto;
-                border: solid #f57c00 1px;
             }
 
             th, td {
                 width: auto;
+            }
+
+            tbody > tr:hover {
+                color: #f57c00;
+            }
+
+            .room {
+                box-shadow: 10px 10px 5px #000000;
             }
         </style>
         <div class="w3-container">
