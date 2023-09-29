@@ -15,7 +15,7 @@
 
 image::../images/pexels-andrea-piacquadio-3755755.jpg[Bad Air,300,200]
 
-== Slide 2: Main Topic
+== Genügend Lüften ist wichtig!
 
 image::../images/open-window.jpg[background, size=cover]
 .
