@@ -10,6 +10,10 @@
 
 * Optimales Lernklima in der Klasse
 
+=== Ziel Architektur
+
+image::../../docs/asciidocs/images/Zeil-Architektur.png[]
+
 === UCD
 
 https://2223-4bhitm-itp.github.io/2223-4bhitm-project-iot-dashboard[Dokumentation]
