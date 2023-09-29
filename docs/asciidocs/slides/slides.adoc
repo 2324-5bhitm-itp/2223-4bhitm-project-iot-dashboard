@@ -15,15 +15,9 @@
 
 image::../images/pexels-andrea-piacquadio-3755755.jpg[Bad Air,300,200]
 
-== Genügend Lüften ist wichtig!
+== Regelmäßig Lüften ist wichtig!
 
-image::../images/open-window.jpg[background, size=cover]
-.
-====
-[.content]
-[.centered]
-Genügend gute Luft und passende Temperatur sind wichtig!
-====
+image::../images/open-window.jpg[background, size=cover, opacity=50%]
 
 == Funktionsweise
 
