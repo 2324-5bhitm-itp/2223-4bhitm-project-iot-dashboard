@@ -63,62 +63,66 @@ function toViewModel(model: DashboardModel) {
 
 function boxTemplate(box: BoxViewModel) {
     var splitMqttName = box.name.split("/");
-
-    const rows = box.sensors
-        .map(sensor => {
-                // Neopixel Color Converter
-                function getColorSquare(valueString) {
-                    if (sensor.name !== "neopixel") return '';
-
-                    const digitArray = Array.from(valueString, digit => +digit * 255);
-                    const colorStyle = `rgb(${digitArray[0]}, ${digitArray[1]}, ${digitArray[2]})`;
-
-                    return html`
-                        <span style="font-size: xxx-large; color: ${colorStyle};">
-                            &#9632;
-                        </span>`;
-                }
-
-                const unit = unitOfSensorName[sensor.name];
-                const colorSquare = getColorSquare(sensor.value.toString());
-
-                return html`
-                    <tr>
-                        <td>${sensor.name}</td>
-                        <td class="w3-right">
-                            ${colorSquare ? '' : `${sensor.value}`}
-                            ${unit}
-                            ${colorSquare}
-                        </td>
-                    </tr>`;
-
-            }
-        )
-
+  
+    const rows = box.sensors.map((sensor) => {
+      function getColorSquare(valueString) {
+        if (sensor.name !== "neopixel") return "";
+  
+        const digitArray = Array.from(valueString, (digit) => +digit * 255);
+        const colorStyle = `rgb(${digitArray[0]}, ${digitArray[1]}, ${digitArray[2]})`;
+  
+        return html`
+          <span style="font-size: xxx-large; color: ${colorStyle};">&#9632;</span>`;
+      }
+  
+      const unit = unitOfSensorName[sensor.name];
+      const colorSquare = getColorSquare(sensor.value.toString());
+  
+      if (sensor.name === "temperature") {
+        return html`
+          <tr>
+            <td>Temperature</td>
+            <td class="w3-right">
+              <line-chart-component .sensorName="${sensor.name}"></line-chart-component>
+              ${sensor.value.toFixed(2)} ${unit}
+            </td>
+          </tr>`;
+      }
+  
+      return html`
+        <tr>
+          <td>${sensor.name}</td>
+          <td class="w3-right">
+            ${colorSquare ? "" : `${sensor.value}`}
+            ${unit}
+            ${colorSquare}
+          </td>
+        </tr>`;
+    });
+  
     return html`
-        <div class="w3-container w3-sans-serif">
-            <div class="w3-panel">
-                <div class="room">
-                    <table class="w3-table-all box-table">
-                        <caption style="color: white; background-color: #f57c00; text-align: left">
-                            <p style="margin: 5%">Floor: ${splitMqttName[0].toUpperCase()}</p>
-                            <hr style="width: 91%; margin: 0 auto">
-                            <p style="margin: 5%">Room: ${splitMqttName[1].toUpperCase()}</p>
-                        </caption>
-                        <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th class="w3-right">Value</th>
-                        </tr>
-                        </thead>
-                        <tbody>${rows}</tbody>
-                    </table>
-                </div>
-            </div>
+      <div class="w3-container w3-sans-serif">
+        <div class="w3-panel">
+          <div class="room">
+            <table class="w3-table-all box-table">
+              <caption style="color: white; background-color: #f57c00; text-align: left">
+                <p style="margin: 5%">Floor: ${splitMqttName[0].toUpperCase()}</p>
+                <hr style="width: 91%; margin: 0 auto">
+                <p style="margin: 5%">Room: ${splitMqttName[1].toUpperCase()}</p>
+              </caption>
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th class="w3-right">Value</th>
+                </tr>
+              </thead>
+              <tbody>${rows}</tbody>
+            </table>
+          </div>
         </div>
-        </div>
-    `
-}
+      </div>
+    `;
+  }  
 
 function template(vm: AppComponentViewModel) {
     const boxes = vm.boxes.map(boxTemplate)
