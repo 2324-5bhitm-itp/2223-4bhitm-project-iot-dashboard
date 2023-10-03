@@ -1,4 +1,3 @@
-import { html, render } from 'lit-html';
 import Chart from 'chart.js/auto';
 
 class LineChartComponent extends HTMLElement {
