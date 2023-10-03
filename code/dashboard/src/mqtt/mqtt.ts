@@ -101,7 +101,6 @@ function processMessageArrived(message: Message) {
         })
         store.next(next)
     }
-
 }
 function checkConnection() {
     //console.log(client.isConnected());
