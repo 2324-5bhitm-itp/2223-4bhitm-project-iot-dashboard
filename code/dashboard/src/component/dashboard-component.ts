@@ -4,9 +4,11 @@ import {filter, map} from "rxjs"
 import _ from "lodash"
 import {styles} from "../styles/styles"
 import {mqttConfig} from "../mqtt"
+import "./linechart-component"
 
 import "./connection-icon"
 import {unitOfSensorName} from "../model/dashboard-model"
+import {LineChartComponent} from "./linechart-component";
 
 interface BoxViewModel {
     name: string
@@ -77,17 +79,27 @@ function boxTemplate(box: BoxViewModel) {
   
       const unit = unitOfSensorName[sensor.name];
       const colorSquare = getColorSquare(sensor.value.toString());
-  
+
+
       if (sensor.name === "temperature") {
+          const selector = `line-chart-component[sensorName="${sensor.name}"]`;
+          const chartElement = document.querySelector(selector) as LineChartComponent;
+
+          console.log(chartElement)
+          if (chartElement) {
+              chartElement.updateChartData([sensor.lastValueReceivedAt], [sensor.value]);
+          }
+
         return html`
           <tr>
             <td>Temperature</td>
             <td class="w3-right">
               <line-chart-component .sensorName="${sensor.name}"></line-chart-component>
-              ${sensor.value.toFixed(2)} ${unit}
+              ${Number(sensor.value.toFixed(2))} ${unit}
             </td>
           </tr>`;
       }
+
   
       return html`
         <tr>
@@ -122,7 +134,8 @@ function boxTemplate(box: BoxViewModel) {
         </div>
       </div>
     `;
-  }  
+  }
+
 
 function template(vm: AppComponentViewModel) {
     const boxes = vm.boxes.map(boxTemplate)

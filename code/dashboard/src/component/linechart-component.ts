@@ -1,6 +1,6 @@
 import Chart from 'chart.js/auto';
 
-class LineChartComponent extends HTMLElement {
+export class LineChartComponent extends HTMLElement {
   private chart: Chart;
 
   connectedCallback() {
@@ -41,14 +41,6 @@ class LineChartComponent extends HTMLElement {
     });
   }
 
-  updateChartData(labels: string[], data: number[]) {
-    if (this.chart) {
-      this.chart.data.labels = labels;
-      this.chart.data.datasets[0].data = data;
-      this.chart.update();
-    }
-  }
-
   static get observedAttributes() {
     return ['sensor-name'];
   }
@@ -58,6 +50,18 @@ class LineChartComponent extends HTMLElement {
       // Handle sensor name change here if needed
     }
   }
+  updateChartData(labels: number[], data: number[]) {
+    if (this.chart) {
+      this.chart.data.labels = labels
+      this.chart.data.datasets[0].data = data
+      console.log(data)
+      this.chart.update()
+    }
+  }
+}
+
+function cleanDate(d) {
+  return new Date(+d.replace(/\/Date\((\d+)\)\//, '$1')).toDateString()
 }
 
 customElements.define('line-chart-component', LineChartComponent);
