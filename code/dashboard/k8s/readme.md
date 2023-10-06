@@ -1,7 +1,7 @@
 # Cloud Deployment
 
 To work with the cloud you must have [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) installed. 
-The subfolder [parts](./parts) contains the files to deploy the application to your cloud account in your personal cloud namespace. 
+The subfolder [parts](parts) contains the files to deploy the application to your cloud account in your personal cloud namespace. 
 
 Before you can use this you must do the following:
 
@@ -9,7 +9,7 @@ Before you can use this you must do the following:
 
    Replace $GITHUB_ACCOUNT with your github account name and $EMAIL with the prefix of the email that you have used to register in the LeoCloud (only the part **before** the **@**). 
 
-   There is a script [create-deployment.sh](./create-deployment.sh) that you can use to do this automatically. 
+   There is a script [create-deployment.sh](create-deployment.sh) that you can use to do this automatically. 
    Let us suppose your github account is _john-doe_ and your email is _john.doe@example.com_
    Then you can run:
 ```bash
