@@ -50,10 +50,11 @@ export class LineChartComponent extends HTMLElement {
       // Handle sensor name change here if needed
     }
   }
-  updateChartData(labels: number[], data: number[]) {
+  updateChartData(labels: number, data: number) {
     if (this.chart) {
-      this.chart.data.labels = labels
-      this.chart.data.datasets[0].data = data
+      console.log("update")
+      this.chart.data.labels.push(labels)
+      this.chart.data.datasets[0].data.push(data)
       console.log(data)
       this.chart.update()
     }

@@ -88,7 +88,7 @@ function boxTemplate(box: BoxViewModel) {
 
           console.log(chartElement)
           if (chartElement) {
-              chartElement.updateChartData([sensor.lastValueReceivedAt], [sensor.value]);
+              chartElement.updateChartData(sensor.lastValueReceivedAt, sensor.value);
           }
 
         return html`
