@@ -86,7 +86,7 @@ function boxTemplate(box: BoxViewModel) {
           const chartElement = document.querySelector(selector) as LineChartComponent;
 
 
-          console.log(chartElement)
+          console.log(chartElement + "This is the chart element")
           if (chartElement) {
               chartElement.updateChartData(sensor.lastValueReceivedAt, sensor.value);
           }
