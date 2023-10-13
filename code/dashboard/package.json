@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack serve --host=127.0.0.1"
+    "start": "webpack serve --host=127.0.0.1",
+    "build": "webpack"
   },
   "keywords": [],
   "author": "",
