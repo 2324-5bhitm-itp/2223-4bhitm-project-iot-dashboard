@@ -33,3 +33,6 @@ image::./docs/asciidocs/images/Zeil-Architektur.png[]
 image::https://www.plantuml.com/plantuml/png/bP2nJiD038PtFuNLfNHeAzAj0oegRr2LtUHCSjBbhjW-A23UdKiW5KXa88lj-Fx__-IT6edbBi2yDJlfThq-1OhzdrMTkhNoK-POyz9vQeGwWFbnVuVBgGy2FnfQGl5DQ-YyS6q-HO2-eTW4niEh6dT8EdRlW9YLQrB6sRtNJC6_CL9HFfSI7VhuFIX7JO8FwSmwwosE-sluMyuYISP7rNyZHk5cmjsHqGWmOMwjiBOfEBmD9Dq5fO8FWAkYM-3g1ajJBN2BV3QEJg6VnyNcvsAuV8MJbo_uIVfyVc4PiWvrcr80-Af5ES3-7WUGIs0reFXOX-mOO5U2SnS-0G00[]
 
 
+=== Datenmodell Postgresql
+
+image::http://www.plantuml.com/plantuml/png/LO_12i9034Jl-OgmHw47_w2W5y6ZTrdRM1VMRCcc1odzTmreP6-PcJS3wQj6qUMP8TDTKGjAcXwAOn8QD1M6GuwruhaCqIIky3klfoFSY8bvuGakhvdCcQCGAspVdjcuUkgy0xvcI3FkfGtSngxpnjyC-s11s8Ls3XfbkM56cuQUUFny_WO0[Datenmodell]

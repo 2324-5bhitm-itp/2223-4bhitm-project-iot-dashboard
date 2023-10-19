@@ -222,3 +222,13 @@ Bug 2:
 === 20.06
 
 Neue Sensorbox konfiguriert e59_2
+
+=== 19.10
+
+Mitschrift Besprechung CRUCC, SCHRA
+
+* range / legende für farben
+* rssi als symbol
+* Vergleich zu normalem / default Wert z.B. CO2 Wert
+* auf englisch und deutsch
+

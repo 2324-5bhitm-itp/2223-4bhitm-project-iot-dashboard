@@ -1,5 +1,19 @@
 = Leo IOT Dashboard
 
+== Per Leotux auf die VM139 zugreifen
+
+-----
+ssh <schuluser einfügen>@leotux.htl-leonding.ac.at
+-----
+
+* mit eigenem Passwort anmelden
+
+-----
+ssh iotadmin@vm139.htl-leonding.ac.at
+-----
+
+== Grafana
+
 Grafana Dashboard auf der vm139:
 http://vm139.htl-leonding.ac.at:3000/
 
