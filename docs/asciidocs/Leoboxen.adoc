@@ -1,0 +1,13 @@
+= Leobox
+
+== Umstellung von esp-idf auf esp-home
+
+* pro Klasse ein yaml file
+
+* esphome run ./nili-ldr.yaml -> flashen einer box
+
+* beim ersten mal: anstecken und flashen
+* beim weiteren mal gehts übers wifi
+
+
+
