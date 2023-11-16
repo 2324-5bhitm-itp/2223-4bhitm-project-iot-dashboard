@@ -20,6 +20,7 @@ interface AppComponentViewModel {
 }
 
 class DashboardComponent extends HTMLElement {
+  static id = 0;
     constructor() {
         super()
         this.attachShadow({mode: "open"})
@@ -81,11 +82,14 @@ function boxTemplate(box: BoxViewModel) {
 
 
       if (sensor.name === "temperature") {
+        DashboardComponent.id++;
           const selector = `line-chart-component[sensorName="${sensor.name}"]`;
           const chartElement = document.querySelector(selector) as LineChartComponent;
-
-
-          console.log("This is the chart element: " + chartElement)
+          /*const selector = `line-chart-component[#1]`;
+          const chartElement = document.querySelector(selector) as LineChartComponent;*/
+          
+          console.log("This is the chart element: " + chartElement + "id:" + DashboardComponent.id)
+          
           if (chartElement) {
               chartElement.updateChartData(sensor.lastValueReceivedAt, sensor.value);
           }
@@ -95,7 +99,7 @@ function boxTemplate(box: BoxViewModel) {
             <td>Temperature</td>
             <td class="w3-right">
               <!--<line-chart-component .sensorName="${sensor.name}"></line-chart-component>-->
-                <line-chart-component/>
+              <line-chart-component id="${DashboardComponent.id}"></line-chart-component>
               ${Number(sensor.value.toFixed(2))} ${unit}
             </td>
           </tr>`;
