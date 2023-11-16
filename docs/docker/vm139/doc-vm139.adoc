@@ -12,6 +12,12 @@ ssh <schuluser einfügen>@leotux.htl-leonding.ac.at
 ssh iotadmin@vm139.htl-leonding.ac.at
 -----
 
+* Problem finden und reparieren
+
+-----
+sudo reboot
+-----
+
 == Grafana
 
 Grafana Dashboard auf der vm139:
