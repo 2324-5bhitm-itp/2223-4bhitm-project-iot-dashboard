@@ -82,16 +82,9 @@ function boxTemplate(box: BoxViewModel) {
 
 
     if (sensor.name === "temperature") {
-
       const sensorName = sensor.name
-      const chartElement = document.createElement('line-chart-component');
+      const chartElement = document.createElement('line-chart-component') as LineChartComponent;
       chartElement.setAttribute('sensor-name', sensorName);
-
-
-      if (chartElement) {
-        console.log("This is the chart element: " + chartElement)
-        //chartElement.updateChartData(sensor.lastValueReceivedAt, sensor.value);
-      }
 
       return html`
       <tr>

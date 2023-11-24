@@ -57,19 +57,23 @@ export class LineChartComponent extends HTMLElement {
   }
 
   subscribeToSensorUpdates() {
-    // Subscribe to sensor updates using RxJS
-    store
-      .pipe(
-        filter(dashboard => !!dashboard),
-        filter(model => !!model.boxes),
-        map(toViewModel),
-        map(vm => vm.boxes.find(box => box.name === this.sensorName)),
-        filter(box => !!box),
-        map(box => box.sensors.find(sensor => sensor.name === 'temperature')),
-        filter(sensor => !!sensor),
-      )
-      .subscribe(sensor => this.updateChartData(sensor.lastValueReceivedAt, sensor.value));
-  }
+  store
+    .pipe(
+      filter(dashboard => !!dashboard),
+      filter(model => !!model.boxes),
+      map(toViewModel),
+    )
+    .subscribe(vm => {
+      const box = vm.boxes.find(box => box.name === this.sensorName);
+      if (box) {
+        const sensor = box.sensors.find(sensor => sensor.name === 'temperature');
+        if (sensor) {
+          this.updateChartData(sensor.lastValueReceivedAt, sensor.value);
+        }
+      }
+    });
+}
+
 
 
   static get observedAttributes() {
@@ -85,12 +89,13 @@ export class LineChartComponent extends HTMLElement {
     }
   }
   updateChartData(labels: number, data: number) {
+    console.log("update")
     if (this.chart) {
       this.chart.data.labels.push(labels);
       this.chart.data.datasets[0].data.push(data);
       this.chart.update();
     }
-  }
+  }  
 }
 
 function toViewModel(model: DashboardModel) {
@@ -115,7 +120,5 @@ function toViewModel(model: DashboardModel) {
 function cleanDate(d) {
   return new Date(+d.replace(/\/Date\((\d+)\)\//, '$1')).toDateString()
 }
-
-
 
 customElements.define('line-chart-component', LineChartComponent);
