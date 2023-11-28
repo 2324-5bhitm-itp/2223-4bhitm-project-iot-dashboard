@@ -1,25 +1,11 @@
-import Chart from 'chart.js/auto'
-import { filter, map } from "rxjs"
-import { DashboardModel, Sensor, store } from "../model"
-import _ from "lodash"
-
-interface BoxViewModel {
-  name: string
-  sensors: Sensor[]
-}
-
-interface AppComponentViewModel {
-  boxes: BoxViewModel[]
-}
+import Chart from 'chart.js/auto';
 
 export class LineChartComponent extends HTMLElement {
   private chart: Chart;
-  private sensorName: string;
 
   connectedCallback() {
     this.attachShadow({ mode: 'open' });
     this.createChart();
-    this.subscribeToSensorUpdates();
   }
 
   createChart() {
@@ -35,7 +21,7 @@ export class LineChartComponent extends HTMLElement {
             label: 'Temperature',
             data: [],
             borderColor: 'rgb(75, 192, 192)',
-            fill: true,
+            fill: false,
           },
         ],
       },
@@ -53,28 +39,7 @@ export class LineChartComponent extends HTMLElement {
         },
       },
     });
-    this.sensorName = this.getAttribute('sensor-name');
   }
-
-  subscribeToSensorUpdates() {
-  store
-    .pipe(
-      filter(dashboard => !!dashboard),
-      filter(model => !!model.boxes),
-      map(toViewModel),
-    )
-    .subscribe(vm => {
-      const box = vm.boxes.find(box => box.name === this.sensorName);
-      if (box) {
-        const sensor = box.sensors.find(sensor => sensor.name === 'temperature');
-        if (sensor) {
-          this.updateChartData(sensor.lastValueReceivedAt, sensor.value);
-        }
-      }
-    });
-}
-
-
 
   static get observedAttributes() {
     return ['sensor-name'];
@@ -82,43 +47,22 @@ export class LineChartComponent extends HTMLElement {
 
   attributeChangedCallback(attrName: string, oldVal: string, newVal: string) {
     if (attrName === 'sensor-name' && oldVal !== newVal) {
-      this.sensorName = newVal;
-
-      // Update the chart when the sensor name changes
-      //this.updateChartData([], []);
+      // Handle sensor name change here if needed
     }
   }
   updateChartData(labels: number, data: number) {
-    console.log("update")
     if (this.chart) {
-      this.chart.data.labels.push(labels);
-      this.chart.data.datasets[0].data.push(data);
-      this.chart.update();
+      console.log("update")
+      this.chart.data.labels.push(labels)
+      this.chart.data.datasets[0].data.push(data)
+      console.log(data)
+      this.chart.update()
     }
-  }  
-}
-
-function toViewModel(model: DashboardModel) {
-  const vm: AppComponentViewModel = {
-    boxes: []
   }
-  model.boxes.forEach((box, name) => {
-    const boxModel: BoxViewModel = {
-      name,
-      sensors: []
-    }
-    box.sensors.forEach((sensor, sensorName) => {
-      boxModel.sensors.push(_.clone(sensor))
-    })
-    boxModel.sensors.sort((l, r) => l.name.toLowerCase().localeCompare(r.name.toLowerCase()))
-    vm.boxes.push(boxModel)
-  })
-  vm.boxes.sort((l, r) => l.name.toLowerCase().localeCompare(r.name.toLowerCase()))
-  return vm
 }
 
-function cleanDate(d) {
-  return new Date(+d.replace(/\/Date\((\d+)\)\//, '$1')).toDateString()
-}
+// function cleanDate(d) {
+//   return new Date(+d.replace(/\/Date\((\d+)\)\//, '$1')).toDateString()
+// }
 
 customElements.define('line-chart-component', LineChartComponent);

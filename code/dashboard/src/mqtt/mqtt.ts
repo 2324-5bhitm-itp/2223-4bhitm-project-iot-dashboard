@@ -64,9 +64,9 @@ function onMessageArrived(message: Message) {
 }
 
 function processMessageArrived(message: Message) {
-    console.log("Message", message)
+    //console.log("Message", message)
     const json = message.payloadString
-    console.log("parsing json", json)
+    //console.log("parsing json", json)
     let measurement: MeasurementValue
     try {
         measurement = JSON.parse(json)
@@ -76,7 +76,7 @@ function processMessageArrived(message: Message) {
     if (measurement) {
         const parts = message.destinationName.split("/")
         const boxName = `${parts[0]}/${parts[1]}`
-        console.log(boxName)
+        //console.log(boxName)
         const sensorName = parts[2]
         const next = produce(store.getValue(), model => {
             let box = model.boxes.get(boxName)

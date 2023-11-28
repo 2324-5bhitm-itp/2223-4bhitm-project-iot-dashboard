@@ -9,5 +9,6 @@
 * beim ersten mal: anstecken und flashen
 * beim weiteren mal gehts übers wifi
 
+* Umstellung im yaml.file auf variable Werte (CO2 angepasst)
 
 

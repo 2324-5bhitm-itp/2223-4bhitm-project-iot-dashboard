@@ -4,11 +4,11 @@ import { filter, map } from "rxjs"
 import _ from "lodash"
 import { styles } from "../styles/styles"
 import { mqttConfig } from "../mqtt"
-import "./linechart-component"
 
 import "./connection-icon"
 import { unitOfSensorName } from "../model/dashboard-model"
 import { LineChartComponent } from "./linechart-component";
+
 
 interface BoxViewModel {
   name: string
@@ -94,7 +94,7 @@ function boxTemplate(box: BoxViewModel) {
           ${chartElement}
         </td>
       </tr>`;
-          
+
           /*
     return html`
       <link rel="stylesheet" href="../styles/styles.css">
@@ -225,10 +225,10 @@ function template(vm: AppComponentViewModel) {
             }
         </style>
         <div class="w3-container">
-            <h3 class="w3-panel w3-center" style="color: rgb(255,255,255)"><span class="w3-monospace">
+          <h3 class="w3-panel w3-center" style="color: rgb(255,255,255)"><span class="w3-monospace">
         <mqtt-connected-icon></mqtt-connected-icon>
         ${mqttConfig.topic}</span> ws://${mqttConfig.host}:${mqttConfig.port}
-            </h3>
+          </h3>
         </div>
         <section>
             <div class="box-container">
@@ -237,3 +237,23 @@ function template(vm: AppComponentViewModel) {
         </section>
     `
 }
+
+async function fetchSvg() {
+  const response = await fetch("../../resources/svg/first-floor.svg");
+  const svgText = await response.text();
+  return svgText;
+}
+
+async function renderSvg() {
+  const svgContent = await fetchSvg();
+
+  const svgDocument = new DOMParser().parseFromString(svgContent, "image/svg+xml");
+  const svgElement = svgDocument.documentElement;
+
+  // svgElement.setAttribute("width", "500");
+  // svgElement.setAttribute("height", "500");
+
+  render(html`${svgElement}`, document.body);
+}
+
+renderSvg();

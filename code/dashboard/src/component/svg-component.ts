@@ -1,31 +1,15 @@
-export class SvgComponent {
-    svgContainer: HTMLDivElement;
+import { html } from 'lit-html';
 
-    constructor() {
-        this.svgContainer = document.createElement('div');
-        this.svgContainer.innerHTML = `
-      <h2>SVG Component</h2>
-      <svg id="svg-container" width="400" height="400"></svg>
+export class SvgComponent extends HTMLElement {
+
+    render() {
+        return html`
+      <svg>
+        <!-- Hier kannst du den Inhalt deines SVGs platzieren -->
+        <circle cx="25" cy="25" r="20" stroke="black" stroke-width="3" fill="red" />
+      </svg>
     `;
-        this.loadSvg();
     }
-
-    private loadSvg() {
-        const svgUrl = '../../resources/svg/first-floor.svg'; // Pfad zum SVG-Bild
-
-        // Lade das SVG-Bild
-        fetch(svgUrl)
-            .then(response => response.text())
-            .then(svgData => {
-                // Füge das SVG-Bild dem Container hinzu
-                const svgContainer = this.svgContainer.querySelector('#svg-container');
-                if (svgContainer) {
-                    svgContainer.innerHTML = svgData;
-                }
-            })
-            .catch(error => {
-                console.error('Fehler beim Laden des SVG-Bildes:', error);
-            });
-    }
-
 }
+
+customElements.define("svg-component", SvgComponent)
