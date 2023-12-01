@@ -235,6 +235,7 @@ function template(vm: AppComponentViewModel) {
                 ${boxes}
             </div>
         </section>
+        <svg-component></svg-component>
     `
 }
 
