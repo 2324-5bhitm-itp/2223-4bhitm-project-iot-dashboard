@@ -229,6 +229,12 @@ function template(vm: AppComponentViewModel) {
             .room {
                 box-shadow: 10px 10px 5px #000000;
             }
+
+            report-component {
+              font-family: "Open Sans", Arial, sans-serif;
+              font-size: larger;
+              color: white;
+            }
         </style>
         <div class="w3-container">
           <h3 class="w3-panel w3-center" style="color: rgb(255,255,255)"><span class="w3-monospace">
@@ -242,26 +248,6 @@ function template(vm: AppComponentViewModel) {
             </div>
         </section>
         ${svgElement}
-        ${reportElement}
+        <!-- ${reportElement} -->
     `
 }
-
-async function fetchSvg() {
-  const response = await fetch("../../resources/svg/first-floor.svg");
-  const svgText = await response.text();
-  return svgText;
-}
-
-async function renderSvg() {
-  const svgContent = await fetchSvg();
-
-  const svgDocument = new DOMParser().parseFromString(svgContent, "image/svg+xml");
-  const svgElement = svgDocument.documentElement;
-
-  svgElement.setAttribute("width", "700");
-  svgElement.setAttribute("height", "700");
-
-  render(html`${svgElement}`, document.body);
-}
-
-renderSvg();

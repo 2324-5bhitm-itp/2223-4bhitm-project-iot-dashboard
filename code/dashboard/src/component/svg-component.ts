@@ -26,8 +26,8 @@ export class SvgComponent extends HTMLElement {
         );
         const svgElement = svgDocument.documentElement;
 
-        svgElement.setAttribute("width", "500");
-        svgElement.setAttribute("height", "500");
+        svgElement.setAttribute("width", "800");
+        svgElement.setAttribute("height", "800");
 
         render(html`<div class="svg-container">${svgElement}</div>`, this.shadowRoot!);
     }
@@ -38,6 +38,7 @@ export class SvgComponent extends HTMLElement {
             paths: {
                 "First Floor": "../../resources/svg/first-floor.svg",
                 "Second Floor": "../../resources/svg/second-floor.svg",
+                "Third Floor": "../../resources/svg/third-floor.svg",
             },
             selectedPath: "../../resources/svg/first-floor.svg",
             onPathChange: (path) => this.renderSvg(path),

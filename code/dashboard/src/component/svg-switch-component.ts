@@ -1,4 +1,5 @@
 import { html, render } from "lit-html";
+import "../styles/svg-switch.css"
 
 interface SvgSwitchProps {
     paths: Record<string, string>;
@@ -31,21 +32,29 @@ export class SvgSwitchComponent extends HTMLElement {
     render() {
         const { paths, selectedPath, onPathChange } = this.props;
 
-        const options = Object.entries(paths).map(([name, path]) => html`
-      <option value="${path}" ?selected="${path === selectedPath}">${name}</option>
-    `);
+        const options = Object.entries(paths).map(([name, path]) =>
+            html`
+        <option value="${path}" ?selected="${path === selectedPath}">
+          ${name}
+        </option>
+      `
+        );
 
         const handleChange = (event: Event) => {
             const target = event.target as HTMLSelectElement;
             const selectedPath = target.value;
-            onPathChange(selectedPath);
+            this.props.onPathChange(selectedPath);
         };
 
-        render(html`
-      <select @change="${handleChange}">
-        ${options}
-      </select>
-    `, this.shadowRoot);
+
+        render(
+            html`
+        <select @change="${handleChange}" style="font-size: larger; padding: 1%">
+          ${options}
+        </select>
+      `,
+            this.shadowRoot!
+        );
     }
 }
 
