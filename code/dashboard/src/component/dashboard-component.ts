@@ -236,6 +236,7 @@ function template(vm: AppComponentViewModel) {
             </div>
         </section>
         <svg-component></svg-component>
+        <report-component></report-component>
     `
 }
 
