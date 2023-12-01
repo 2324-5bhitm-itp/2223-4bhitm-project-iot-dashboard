@@ -8,6 +8,7 @@ import { mqttConfig } from "../mqtt"
 import "./connection-icon"
 import { unitOfSensorName } from "../model/dashboard-model"
 import { LineChartComponent } from "./linechart-component";
+import defaultCallbacks from "chart.js/dist/plugins/plugin.tooltip";
 
 
 interface BoxViewModel {
@@ -85,6 +86,7 @@ function boxTemplate(box: BoxViewModel) {
       const sensorName = sensor.name
       const chartElement = document.createElement('line-chart-component') as LineChartComponent;
       chartElement.setAttribute('sensor-name', sensorName);
+      chartElement.updateChartData(1, Number(sensor.value.toFixed(2)))
 
       return html`
       <tr>
