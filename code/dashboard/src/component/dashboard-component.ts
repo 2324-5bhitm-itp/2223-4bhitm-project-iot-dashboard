@@ -8,6 +8,8 @@ import { mqttConfig } from "../mqtt"
 import "./connection-icon"
 import { unitOfSensorName } from "../model/dashboard-model"
 import { LineChartComponent } from "./linechart-component";
+import { SvgComponent } from "./svg-component";
+import { ReportComponent } from "./report-component";
 
 
 interface BoxViewModel {
@@ -188,6 +190,10 @@ function updateTemperatureComponent() {
 
 function template(vm: AppComponentViewModel) {
   const boxes = vm.boxes.map(boxTemplate)
+
+  const svgElement = document.createElement('svg-component') as SvgComponent;
+  const reportElement = document.createElement('report-component') as ReportComponent;
+
   return html`
         ${styles}
         <style>
@@ -235,8 +241,8 @@ function template(vm: AppComponentViewModel) {
                 ${boxes}
             </div>
         </section>
-        <svg-component></svg-component>
-        <report-component></report-component>
+        ${svgElement}
+        ${reportElement}
     `
 }
 
@@ -252,8 +258,8 @@ async function renderSvg() {
   const svgDocument = new DOMParser().parseFromString(svgContent, "image/svg+xml");
   const svgElement = svgDocument.documentElement;
 
-  // svgElement.setAttribute("width", "500");
-  // svgElement.setAttribute("height", "500");
+  svgElement.setAttribute("width", "700");
+  svgElement.setAttribute("height", "700");
 
   render(html`${svgElement}`, document.body);
 }
