@@ -36,7 +36,7 @@ export const mqttConnectionOptions: ConnectionOptions = {
 }
 
 connect()
-setInterval(() => checkConnection(), 10000)
+//setInterval(() => checkConnection(), 10000)
 function connect() {
     client = new Client(mqttConfig.host, mqttConfig.port, mqttConfig.path, mqttConfig.clientId)
     console.log("connecting...")

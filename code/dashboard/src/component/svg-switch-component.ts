@@ -1,5 +1,4 @@
 import { html, render } from "lit-html";
-import "../styles/svg-switch.css"
 
 interface SvgSwitchProps {
     paths: Record<string, string>;
@@ -24,7 +23,7 @@ export class SvgSwitchComponent extends HTMLElement {
         this.render();
     }
 
-    setProps(props: Partial<SvgSwitchProps>) {
+    setProps(props: SvgSwitchProps) {
         this.props = { ...this.props, ...props };
         this.render();
     }
@@ -34,7 +33,7 @@ export class SvgSwitchComponent extends HTMLElement {
 
         const options = Object.entries(paths).map(([name, path]) =>
             html`
-        <option value="${path}" ?selected="${path === selectedPath}">
+        <option value="${path}" selected="${path === selectedPath}">
           ${name}
         </option>
       `

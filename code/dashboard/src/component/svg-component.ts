@@ -34,6 +34,7 @@ export class SvgComponent extends HTMLElement {
 
     renderSvgSwitch() {
         const svgSwitchElement = document.createElement("svg-switch") as SvgSwitchComponent;
+        // anderes Element als HTML Element verwenden weil setProps keine Function ist
         svgSwitchElement.setProps({
             paths: {
                 "First Floor": "../../resources/svg/first-floor.svg",
