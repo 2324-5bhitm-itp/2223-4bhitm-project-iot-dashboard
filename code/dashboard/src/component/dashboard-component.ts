@@ -239,7 +239,7 @@ function template(vm: AppComponentViewModel) {
             }
         </style>
 
-        ${svgElement}
+        <!--${svgElement}-->
         
         <div class="w3-container">
           <h3 class="w3-panel w3-center" style="color: rgb(255,255,255)"><span class="w3-monospace">

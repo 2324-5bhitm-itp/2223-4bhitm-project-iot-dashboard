@@ -5,14 +5,39 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="./styles.css" rel="stylesheet">
     <title>IOT-Dashboard</title>
-    <style>
-        html, body {
-            background-color: #232323;
-        }
-    </style>
 </head>
 <body>
-    <dashboard-component></dashboard-component>
+<div class="selectionBox" id="selectionBox">
+    <div onclick="showDashboard()" style="background-image: url('./resources/svg/first-floor.svg');
+    background-position-x: -1vw;
+    background-position-y: -2.4vw;
+    background-size: 108%;">
+        <p>First Floor</p>
+    </div>
+    <div style="background-image: url('./resources/svg/second-floor.svg')">
+        <p>Second Floor</p>
+    </div>
+    <div style="background-image: url('./resources/svg/third-floor.svg')">
+        <p>Third Floor</p>
+    </div>
+</div>
+
+<h1 class="headFont" id="headFont">Aktive boxes in the first floor</h1>
+
+<dashboard-component id="dashboardComponent" style="display:none;"></dashboard-component>
+
+<script>
+    function showDashboard() {
+        const selectionBox = document.getElementById('selectionBox');
+        const dashboardComponent = document.getElementById('dashboardComponent');
+        const headFont = document.getElementById('headFont');
+
+        selectionBox.style.display = 'none';
+        headFont.style.display = 'block';
+        dashboardComponent.style.display = 'block';
+    }
+</script>
 </body>
 </html>
