@@ -36,8 +36,14 @@ export const mqttConnectionOptions: ConnectionOptions = {
 }
 
 connect()
-//setInterval(() => checkConnection(), 10000)
+setInterval(() => checkConnection(), 5000)
 function connect() {
+    if (client && client.isConnected()) {
+        // Die Verbindung ist bereits hergestellt
+        console.log("Already connected to MQTT");
+        return;
+    }
+
     client = new Client(mqttConfig.host, mqttConfig.port, mqttConfig.path, mqttConfig.clientId)
     console.log("connecting...")
     client.onMessageArrived = onMessageArrived

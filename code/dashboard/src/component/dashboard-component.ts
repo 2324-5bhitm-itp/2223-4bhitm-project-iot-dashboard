@@ -231,7 +231,16 @@ function template(vm: AppComponentViewModel) {
             .room {
                 box-shadow: 10px 10px 5px #000000;
             }
+
+            report-component {
+                font-family: "Open Sans", Arial, sans-serif;
+                font-size: larger;
+                color: white;
+            }
         </style>
+
+        ${svgElement}
+        
         <div class="w3-container">
           <h3 class="w3-panel w3-center" style="color: rgb(255,255,255)"><span class="w3-monospace">
         <mqtt-connected-icon></mqtt-connected-icon>
@@ -243,8 +252,7 @@ function template(vm: AppComponentViewModel) {
                 ${boxes}
             </div>
         </section>
-        ${svgElement}
-        ${reportElement}
+        <!--${reportElement}-->
     `
 }
 
