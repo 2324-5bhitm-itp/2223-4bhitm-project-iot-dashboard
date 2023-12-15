@@ -24,19 +24,31 @@
     </div>
 </div>
 
+<button onclick="goBack()" id="backButton" style="display: none">Back</button>
+
 <h1 class="headFont" id="headFont">Aktive boxes in the first floor</h1>
 
 <dashboard-component id="dashboardComponent" style="display:none;"></dashboard-component>
 
-<script>
+<script defer>
+    const selectionBox = document.getElementById('selectionBox');
+    const dashboardComponent = document.getElementById('dashboardComponent');
+    const headFont = document.getElementById('headFont');
+    const backButton = document.getElementById('backButton');
     function showDashboard() {
-        const selectionBox = document.getElementById('selectionBox');
-        const dashboardComponent = document.getElementById('dashboardComponent');
-        const headFont = document.getElementById('headFont');
 
         selectionBox.style.display = 'none';
         headFont.style.display = 'block';
         dashboardComponent.style.display = 'block';
+        backButton.style.display = 'block';
+    }
+
+    function goBack() {
+
+        selectionBox.style.display = 'flex';
+        headFont.style.display = 'none';
+        dashboardComponent.style.display = 'none';
+        backButton.style.display = 'none';
     }
 </script>
 </body>
