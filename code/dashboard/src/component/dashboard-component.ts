@@ -1,7 +1,6 @@
 import { html, render } from "lit-html"
 import { DashboardModel, Sensor, store } from "../model"
 import { filter, map } from "rxjs"
-import _ from "lodash"
 import { styles } from "../styles/styles"
 import { mqttConfig } from "../mqtt"
 
@@ -10,7 +9,6 @@ import { unitOfSensorName } from "../model/dashboard-model"
 import { LineChartComponent } from "./linechart-component";
 import { SvgComponent } from "./svg-component";
 import { ReportComponent } from "./report-component";
-import defaultCallbacks from "chart.js/dist/plugins/plugin.tooltip";
 
 
 interface BoxViewModel {
@@ -56,7 +54,7 @@ function toViewModel(model: DashboardModel) {
       sensors: []
     }
     box.sensors.forEach((sensor, sensorName) => {
-      boxModel.sensors.push(_.clone(sensor))
+      boxModel.sensors.push(sensor)
     })
     boxModel.sensors.sort((l, r) => l.name.toLowerCase().localeCompare(r.name.toLowerCase()))
     vm.boxes.push(boxModel)
@@ -98,14 +96,6 @@ function boxTemplate(box: BoxViewModel) {
           ${chartElement}
         </td>
       </tr>`;
-
-      /*
-return html`
-  <link rel="stylesheet" href="../styles/styles.css">
-  <span class="emoji" role="img" aria-label="happy face">😊</span>
-  <input type="range" class="slider" min="0" max="40" value="${Number(sensor.value.toFixed(2))}" aria-label="temperature in degrees celsius">
-  <p class="temperature"><span class="temperature-output">${Number(sensor.value.toFixed(2))}</span>&deg;C</p>`
-  */
     }
 
     return html`
@@ -143,52 +133,6 @@ return html`
     `;
 }
 
-function updateTemperatureComponent() {
-  const emoji = document.querySelector(".emoji"),
-      slider = document.querySelector(".slider") as HTMLInputElement,
-      tempOutput = document.querySelector(".temperature-output"),
-      displayTemp = (temperature) => {
-        //Display temperature
-        tempOutput.textContent = temperature;
-
-        //Display emoji
-        if (temperature >= 0 && temperature <= 8) {
-          emoji.textContent = "🥶";
-          emoji.setAttribute("aria-label", "freezing face");
-        } else if (temperature > 8 && temperature <= 16) {
-          emoji.textContent = "😬";
-          emoji.setAttribute("aria-label", "cold face");
-        } else if (temperature > 16 && temperature <= 24) {
-          emoji.textContent = "😊";
-          emoji.setAttribute("aria-label", "happy face");
-        } else if (temperature > 24 && temperature <= 32) {
-          emoji.textContent = "😅";
-          emoji.setAttribute("aria-label", "warm face");
-        } else {
-          emoji.textContent = "🥵";
-          emoji.setAttribute("aria-label", "hot face");
-        }
-      };
-
-  //CodePen preview window
-  if (location.pathname.includes("fullcpgrid")) {
-    let temperature = 0;
-
-    const interval = setInterval(() => {
-      //Remove interval if max temperature is reached
-      if (temperature === 40) clearInterval(interval);
-
-      //Update slider value
-      slider.value = temperature.toString();
-
-      //Display temperature and emoji
-      displayTemp(temperature);
-
-      //Increase temperature
-      temperature++;
-    }, 95);
-  }
-}
 
 function template(vm: AppComponentViewModel) {
   const boxes = vm.boxes.map(boxTemplate)
