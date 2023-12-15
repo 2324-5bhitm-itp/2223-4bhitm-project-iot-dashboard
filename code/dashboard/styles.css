@@ -46,9 +46,11 @@ html, body {
 
 #backButton {
     padding: 1vw;
-    margin: 0vw 3vw;
+    margin: 0vw 1vw;
     font-size: larger;
     position: absolute;
+    top: 1vw;
+    left: 1vw;
 }
 
 #backButton:hover {

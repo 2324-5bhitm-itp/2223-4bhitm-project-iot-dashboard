@@ -19,6 +19,7 @@ class MqttConnectionIcon extends HTMLElement {
 function template(connected: boolean) {
     const clazz = connected ? "w3-text-green" : "w3-text-red"
     return html`
+        <h1 class="headFont" id="headFont">Active boxes in this floor</h1>
         <span class="material-icons ${clazz}">
         ${connected ? "wifi" : "wifi_off"}
         </span>

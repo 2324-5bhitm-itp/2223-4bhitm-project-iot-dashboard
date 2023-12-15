@@ -10,46 +10,49 @@
 </head>
 <body>
 <div class="selectionBox" id="selectionBox">
-    <div onclick="showDashboard()" style="background-image: url('./resources/svg/first-floor.svg');
+    <div onclick="showDashboard('EG')" style="background-image: url('./resources/svg/first-floor.svg');
     background-position-x: -1vw;
     background-position-y: -2.4vw;
     background-size: 108%;">
         <p>First Floor</p>
     </div>
-    <div style="background-image: url('./resources/svg/second-floor.svg')">
+    <div onclick="showDashboard('OG')" style="background-image: url('./resources/svg/second-floor.svg')">
         <p>Second Floor</p>
     </div>
-    <div style="background-image: url('./resources/svg/third-floor.svg')">
+    <div onclick="showDashboard('OG2')" style="background-image: url('./resources/svg/third-floor.svg')">
         <p>Third Floor</p>
     </div>
 </div>
 
-<button onclick="goBack()" id="backButton" style="display: none">Back</button>
 
-<h1 class="headFont" id="headFont">Aktive boxes in the first floor</h1>
+<button onclick="goBack()" id="backButton" style="display: none">Back</button>
 
 <dashboard-component id="dashboardComponent" style="display:none;"></dashboard-component>
 
 <script defer>
     const selectionBox = document.getElementById('selectionBox');
     const dashboardComponent = document.getElementById('dashboardComponent');
-    const headFont = document.getElementById('headFont');
+    //const headFont = document.getElementById('headFont');
     const backButton = document.getElementById('backButton');
-    function showDashboard() {
 
+    function showDashboard(floorName) {
         selectionBox.style.display = 'none';
-        headFont.style.display = 'block';
+        //headFont.style.display = 'block';
         dashboardComponent.style.display = 'block';
+
+        // Hier können Sie die Informationen an das dashboard-component übergeben
+        dashboardComponent.setFloorName(floorName);
+
         backButton.style.display = 'block';
     }
 
     function goBack() {
-
         selectionBox.style.display = 'flex';
-        headFont.style.display = 'none';
+        //headFont.style.display = 'none';
         dashboardComponent.style.display = 'none';
         backButton.style.display = 'none';
     }
+
 </script>
 </body>
 </html>
