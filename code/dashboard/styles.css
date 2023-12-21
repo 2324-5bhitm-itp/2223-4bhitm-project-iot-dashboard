@@ -4,6 +4,15 @@ html, body {
     font-family: "Open Sans", Arial, sans-serif;
 }
 
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
 .selectionBox {
     display: flex;
     flex-direction: row;
@@ -27,6 +36,7 @@ html, body {
     background-position-x: -1vw;
     background-repeat: no-repeat;
     border-radius: 5%;
+    animation: fadeIn 0.5s forwards;
 }
 
 .selectionBox > div:hover {
@@ -56,4 +66,8 @@ html, body {
 #backButton:hover {
     cursor: pointer;
     scale: 110%;
+}
+
+#dashboardComponent {
+    /*animation: fadeIn 2s forwards;*/
 }

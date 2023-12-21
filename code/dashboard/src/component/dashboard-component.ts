@@ -165,11 +165,21 @@ function template(vm: AppComponentViewModel) {
   return html`
         ${styles}
         <style>
+            @keyframes fadeIn {
+                from {
+                    opacity: 0;
+                }
+                to {
+                    opacity: 1;
+                }
+            }
+            
             .box-container {
                 display: flex;
                 align-items: flex-start;
                 justify-content: center;
                 flex-wrap: wrap;
+                animation: fadeIn 0.5s forwards;
             }
 
             .spring {
