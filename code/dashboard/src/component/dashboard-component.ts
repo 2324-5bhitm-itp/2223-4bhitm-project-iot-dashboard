@@ -10,6 +10,9 @@ import { LineChartComponent } from "./linechart-component";
 import { SvgComponent } from "./svg-component";
 import { ReportComponent } from "./report-component";
 
+import defaultCallbacks from "chart.js/dist/plugins/plugin.tooltip";
+import {produce} from "immer";
+
 
 interface BoxViewModel {
   name: string
@@ -17,36 +20,54 @@ interface BoxViewModel {
 }
 
 interface AppComponentViewModel {
-  boxes: BoxViewModel[]
+    boxes: BoxViewModel[],
+    selectedFloor: string
 }
 
 class DashboardComponent extends HTMLElement {
-  constructor() {
-    super()
-    this.attachShadow({ mode: "open" })
-  }
+    private noActiveBoxesDisplayed: boolean;
+    constructor() {
+        super()
+        this.attachShadow({ mode: "open" })
+        this.noActiveBoxesDisplayed = false; // Flag to track whether the message has been displayed
+    }
 
-  connectedCallback() {
-    store
-        .pipe(
-            filter(dashboard => !!dashboard),
-            filter(model => !!model.boxes),
-            map(toViewModel)
-        )
-        .subscribe(vm => this.render(vm))
+    connectedCallback() {
+        store
+            .pipe(
+                filter(dashboard => !!dashboard),
+                filter(model => !!model.boxes),
+                map(toViewModel)
+            )
+            .subscribe(vm => this.render(vm))
+    }
 
-  }
+    setFloorName(floorName: string) {
+        const nextState = produce(store.getValue(), model => {
+            model.selectedFloor = floorName
+        })
+        store.next(nextState)
+    }
 
-  render(vm: AppComponentViewModel) {
-    render(template(vm), this.shadowRoot)
-  }
+    render(vm: AppComponentViewModel) {
+        const hasActiveBoxes = vm.boxes.some(box => box.name.toUpperCase().startsWith(vm.selectedFloor));
+
+        if (hasActiveBoxes) {
+            this.noActiveBoxesDisplayed = false;
+            render(template(vm), this.shadowRoot);
+        } else if (!this.noActiveBoxesDisplayed) {
+            this.noActiveBoxesDisplayed = true;
+            render(html`<h1 style="color: white; text-align: center; padding: 2vw">No active boxes found...</h1>`, this.shadowRoot);
+        }
+    }
 }
 
 customElements.define("dashboard-component", DashboardComponent)
 
 function toViewModel(model: DashboardModel) {
   const vm: AppComponentViewModel = {
-    boxes: []
+        boxes: [],
+      selectedFloor: model.selectedFloor
   }
   model.boxes.forEach((box, name) => {
     const boxModel: BoxViewModel = {
@@ -96,6 +117,7 @@ function boxTemplate(box: BoxViewModel) {
           ${chartElement}
         </td>
       </tr>`;
+
     }
 
     return html`
@@ -111,26 +133,26 @@ function boxTemplate(box: BoxViewModel) {
 
   return html`
       <div class="w3-container w3-sans-serif">
-        <div class="w3-panel">
-          <div class="room">
-            <table class="w3-table-all box-table">
-              <caption style="color: white; background-color: #f57c00; text-align: left">
-                <p style="margin: 5%">Floor: ${splitMqttName[0].toUpperCase()}</p>
-                <hr style="width: 91%; margin: 0 auto">
-                <p style="margin: 5%">Room: ${splitMqttName[1].toUpperCase()}</p>
-              </caption>
-              <thead>
-                <tr>
-                  <th>Name</th>
-                  <th class="w3-right">Value</th>
-                </tr>
-              </thead>
-              <tbody>${rows}</tbody>
-            </table>
+          <div class="w3-panel">
+              <div class="room">
+                  <table class="w3-table-all box-table">
+                      <caption style="color: white; background-color: #f57c00; text-align: left">
+                          <p style="margin: 5%">Floor: ${splitMqttName[0].toUpperCase()}</p>
+                          <hr style="width: 91%; margin: 0 auto">
+                          <p style="margin: 5%">Room: ${splitMqttName[1].toUpperCase()}</p>
+                      </caption>
+                      <thead>
+                      <tr>
+                          <th>Name</th>
+                          <th class="w3-right">Value</th>
+                      </tr>
+                      </thead>
+                      <tbody>${rows}</tbody>
+                  </table>
+              </div>
           </div>
-        </div>
       </div>
-    `;
+  `;
 }
 
 
@@ -175,7 +197,16 @@ function template(vm: AppComponentViewModel) {
             .room {
                 box-shadow: 10px 10px 5px #000000;
             }
+
+            report-component {
+                font-family: "Open Sans", Arial, sans-serif;
+                font-size: larger;
+                color: white;
+            }
         </style>
+
+        <!--${svgElement}-->
+        
         <div class="w3-container">
           <h3 class="w3-panel w3-center" style="color: rgb(255,255,255)"><span class="w3-monospace">
         <mqtt-connected-icon></mqtt-connected-icon>
@@ -187,8 +218,7 @@ function template(vm: AppComponentViewModel) {
                 ${boxes}
             </div>
         </section>
-        ${svgElement}
-        ${reportElement}
+        <!--${reportElement}-->
     `
 }
 

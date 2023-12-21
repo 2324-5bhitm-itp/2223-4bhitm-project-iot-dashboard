@@ -1,0 +1,59 @@
+
+html, body {
+    background-color: #232323;
+    font-family: "Open Sans", Arial, sans-serif;
+}
+
+.selectionBox {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.selectionBox > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: black;
+    padding: 2vw;
+    margin: 3vw;
+    border: white 2px solid;
+    width: 15vw;
+    height: 15vw;
+    background-color: rgba(255, 255, 255);
+    background-size: 115%;
+    background-position-y: -5vw;
+    background-position-x: -1vw;
+    background-repeat: no-repeat;
+    border-radius: 5%;
+}
+
+.selectionBox > div:hover {
+    cursor: pointer;
+    scale: 110%;
+}
+
+.selectionBox > div > p {
+    scale: 150%;
+}
+
+.headFont {
+    text-align: center;
+    color: white;
+    display: none;
+}
+
+#backButton {
+    padding: 1vw;
+    margin: 0vw 1vw;
+    font-size: larger;
+    position: absolute;
+    top: 1vw;
+    left: 1vw;
+}
+
+#backButton:hover {
+    cursor: pointer;
+    scale: 110%;
+}
