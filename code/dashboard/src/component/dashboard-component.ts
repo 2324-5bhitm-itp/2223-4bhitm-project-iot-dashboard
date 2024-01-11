@@ -107,8 +107,9 @@ function boxTemplate(box: BoxViewModel) {
       const sensorName = sensor.name
       const chartElement = document.createElement('line-chart-component') as LineChartComponent;
       chartElement.setAttribute('sensor-name', sensorName);
-      chartElement.updateChartData(1, Number(sensor.value.toFixed(2)))
-
+      // Pass the data as an attribute
+      chartElement.setAttribute('sensor-value', sensor.value.toFixed(2));
+    
       return html`
       <tr>
         <td>Temperature</td>
@@ -117,12 +118,11 @@ function boxTemplate(box: BoxViewModel) {
           ${chartElement}
         </td>
       </tr>`;
-
     }
 
     return html`
         <tr>
-          <td>${sensor.name}</td>
+        <td>${sensor.name.charAt(0).toUpperCase() + sensor.name.slice(1)}</td>
           <td class="w3-right">
             ${colorSquare ? "" : `${sensor.value}`}
             ${unit}

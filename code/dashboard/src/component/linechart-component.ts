@@ -42,14 +42,18 @@ export class LineChartComponent extends HTMLElement {
   }
 
   static get observedAttributes() {
-    return ['sensor-name'];
+    return ['sensor-name', 'sensor-value'];
   }
-
+  
   attributeChangedCallback(attrName: string, oldVal: string, newVal: string) {
-    if (attrName === 'sensor-name' && oldVal !== newVal) {
-      // Handle sensor name change here if needed
+    if (attrName === 'sensor-value' && oldVal !== newVal && this.chart) {
+      console.log("update")
+      this.updateChartData(1, Number(newVal))
+      console.log(newVal)
+      this.chart.update()
     }
   }
+
   updateChartData(labels: number, data: number) {
     if (this.chart) {
       console.log("update")
