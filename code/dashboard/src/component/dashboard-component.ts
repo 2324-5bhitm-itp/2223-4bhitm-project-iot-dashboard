@@ -91,17 +91,29 @@ function boxTemplate(box: BoxViewModel) {
   const rows = box.sensors.map((sensor) => {
     function getColorSquare(valueString) {
       if (sensor.name !== "neopixel") return "";
-
       const digitArray = Array.from(valueString, (digit) => +digit * 255);
       const colorStyle = `rgb(${digitArray[0]}, ${digitArray[1]}, ${digitArray[2]})`;
 
-      return html`
-          <span style="font-size: xxx-large; color: ${colorStyle};">&#9632;</span>`;
+      if(colorStyle === 'rgb(255, 0, 0)') {
+        return html`
+        <a>The air is low quality, you have to open the window!</a>
+        <span style="font-size: xxx-large; color: ${colorStyle};">&#9632;</span>`
+
+      } else if (colorStyle === 'rgb(0, 0, 255)') {
+        return html`
+        <a>The air is medium quality, time to open the Window soon!</a>
+        <span style="font-size: xxx-large; color: ${colorStyle};">&#9632;</span>`
+      } else {
+        return html`
+        <a>The air is fresh!</a>
+        <span style="font-size: xxx-large; color: ${colorStyle};">&#9632;</span>`
+      }
+
+      
     }
 
     const unit = unitOfSensorName[sensor.name];
     const colorSquare = getColorSquare(sensor.value.toString());
-
 
     if (sensor.name === "temperature") {
       const sensorName = sensor.name
