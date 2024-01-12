@@ -1,11 +1,12 @@
 = Gesamtplaung Leo IOT
 
 == Was Passiert dieses Jahr
+.bis zum Jahresende (Maturavorbereitung)
 * Eine Webseite mit einer übersicht über die Räume der HTL Leonding (2D Modell)
 * Räume, in welchen eine Box steht sind Markiert (Durch zB. einen Grün blinkenden Punkt)
 ** Wenn man auf einen Raum klickt sieht man die Daten der Sensorbox in dem Raum
 ** Die Sensordaten werden mit aussagekräftigen Einheiten und Beschreibungen dargestellt
-*** Wenn sinnvoll wird eine Grafische darstellung mit zB. einem Diagramm gemacht
+*** Wenn sinnvoll wird eine grafische Visualisierung mit zB. einem Diagramm dargestellt
 
 * Deployment auf der Leocloud
 
@@ -13,9 +14,8 @@
 
 image::images/Ziearchitektur.png[]
 
-== Was passiert beim nächsten Sprint
-
+== Vereinbarung
+.Was passiert beim nächsten Sprint (bis 19.01.2024)
 * Die Sensorboxen eines Stockwerks werden dargestellt
 * Die Sensordaten werden mit aussagekräftigen Einheiten und Beschreibungen dargestellt
-* Design für die Webseite
 
