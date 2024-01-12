@@ -35,13 +35,14 @@ html, body {
     background-position-y: -5vw;
     background-position-x: -1vw;
     background-repeat: no-repeat;
-    border-radius: 5%;
+    border-radius: 1rem;
     animation: fadeIn 0.5s forwards;
+    transition: transform 0.2s;
 }
 
 .selectionBox > div:hover {
     cursor: pointer;
-    scale: 110%;
+    transform: scale(1.05);
 }
 
 .selectionBox > div > p {
@@ -61,11 +62,14 @@ html, body {
     position: absolute;
     top: 1vw;
     left: 1vw;
+    border: none;
+    border-radius: 0.5rem;
+    transition: transform 0.2s;
 }
 
 #backButton:hover {
     cursor: pointer;
-    scale: 110%;
+    transform: scale(1.1);
 }
 
 #dashboardComponent {

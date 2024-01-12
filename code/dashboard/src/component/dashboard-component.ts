@@ -136,10 +136,10 @@ function boxTemplate(box: BoxViewModel) {
           <div class="w3-panel">
               <div class="room">
                   <table class="w3-table-all box-table">
-                      <caption style="color: white; background-color: #f57c00; text-align: left">
-                          <p style="margin: 5%">Floor: ${splitMqttName[0].toUpperCase()}</p>
+                      <caption style="color: white; background-color: #f57c00; text-align: left; border-radius: 1rem 1rem 0 0;">
+                          <p style="margin: 4% 4% 2% 5%; font-size: x-large">Floor: ${splitMqttName[0].toUpperCase()}</p>
                           <hr style="width: 91%; margin: 0 auto">
-                          <p style="margin: 5%">Room: ${splitMqttName[1].toUpperCase()}</p>
+                          <p style="margin: 4% 4% 4% 5%; font-size: larger">Room: ${splitMqttName[1].toUpperCase()}</p>
                       </caption>
                       <thead>
                       <tr>
@@ -163,73 +163,95 @@ function template(vm: AppComponentViewModel) {
   const reportElement = document.createElement('report-component') as ReportComponent;
 
   return html`
-        ${styles}
-        <style>
-            @keyframes fadeIn {
-                from {
-                    opacity: 0;
-                }
-                to {
-                    opacity: 1;
-                }
-            }
-            
-            .box-container {
-                display: flex;
-                align-items: flex-start;
-                justify-content: center;
-                flex-wrap: wrap;
-                animation: fadeIn 0.5s forwards;
-            }
+      ${styles}
+      <style>
+          @keyframes fadeIn {
+              from {
+                  opacity: 0;
+              }
+              to {
+                  opacity: 1;
+              }
+          }
 
-            .spring {
-                flex-grow: 1;
-            }
+          .box-container {
+              display: flex;
+              align-items: flex-start;
+              justify-content: center;
+              flex-wrap: wrap;
+              animation: fadeIn 0.5s forwards;
+          }
 
-            .box-table {
-                margin: auto;
-                width: auto;
-                border: none;
-            }
+          .spring {
+              flex-grow: 1;
+          }
 
-            table {
-                table-layout: auto;
-            }
+          .box-table {
+              margin: auto;
+              width: auto;
+              border: none;
+          }
 
-            th, td {
-                width: auto;
-            }
+          table {
+              table-layout: auto;
+          }
 
-            tbody > tr:hover {
-                color: #f57c00;
-            }
+          tbody tr:nth-child(even) td {
+              background-color: #f1f1f1;
+          }
 
-            .room {
-                box-shadow: 10px 10px 5px #000000;
-            }
+          tbody tr:nth-child(odd) td {
+              background-color: #fff;
+          }
 
-            report-component {
-                font-family: "Open Sans", Arial, sans-serif;
-                font-size: larger;
-                color: white;
-            }
-        </style>
+          tbody tr:last-child {
+              overflow: hidden;
+              border: none;
+              background-color: rgba(255, 0, 0, 0) !important;
+          }
 
-        <!--${svgElement}-->
-        
-        <div class="w3-container">
+          tbody tr:last-child td:first-child {
+              border-bottom-left-radius: 1rem;
+          }
+
+          tbody tr:last-child td:last-child {
+              border-bottom-right-radius: 1rem;
+          }
+
+          th, td {
+              width: auto;
+          }
+
+          tbody > tr:hover {
+              color: #f57c00;
+          }
+
+          .room {
+              box-shadow: 10px 10px 5px #000000;
+          }
+
+          report-component {
+              font-family: "Open Sans", Arial, sans-serif;
+              font-size: larger;
+              color: white;
+          }
+      </style>
+
+      <!--${svgElement}-->
+
+      <div class="w3-container">
           <h3 class="w3-panel w3-center" style="color: rgb(255,255,255)"><span class="w3-monospace">
         <mqtt-connected-icon></mqtt-connected-icon>
         ${mqttConfig.topic}</span> ws://${mqttConfig.host}:${mqttConfig.port}
           </h3>
-        </div>
-        <section>
-            <div class="box-container">
-                ${boxes}
-            </div>
-        </section>
-        <!--${reportElement}-->
-    `
+      </div>
+      <section>
+          <div class="box-container">
+              ${boxes}
+          </div>
+      </section>
+      <!--${reportElement}-->
+  `
 }
 
 // Abbildung eines SVGs
