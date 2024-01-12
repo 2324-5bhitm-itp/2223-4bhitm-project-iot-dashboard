@@ -20,7 +20,7 @@ export class LineChartComponent extends HTMLElement {
     this.chart = new Chart(canvas, {
       type: 'line',
       data: {
-        labels: [hours + " : " + minutes, hours + 1 + " : " + minutes, hours + 2 + " : " + minutes, hours + 3 + " : " + minutes],
+        labels: [now.getTime(), now.getTime() + 1, now.getTime() + 2, now.getTime() + 3],
         datasets: [
           {
             label: 'Temperature',
