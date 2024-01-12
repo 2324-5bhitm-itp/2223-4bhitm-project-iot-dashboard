@@ -1,0 +1,27 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+'UCD -------------------------
+left to right direction
+
+rectangle System as System {
+  usecase "Visualize active and inactive sensor boxes" as UC1
+
+  usecase "Visualize errors" as UC2
+  usecase "Visualize active and inactive sensors" as UC3
+
+  usecase "Visualize data" as UC12
+  usecase "Visualize threshold Alarms" as UC22
+}
+
+(UC1) .> (UC2) : extends
+(UC2) .> (UC3) : extends
+
+'UCD2 ------------------------
+actor "Viewer" as School
+
+School -- UC12
+School -- UC1
+(UC12) .> (UC22) : include
+
+@enduml
