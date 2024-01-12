@@ -12,14 +12,19 @@ export class LineChartComponent extends HTMLElement {
     const canvas = document.createElement('canvas');
     this.shadowRoot?.appendChild(canvas);
 
+    var now = new Date()
+    var hours = now.getHours().toString()
+    var minutes = now.getMinutes().toString()
+    var seconds = now.getSeconds().toString()
+
     this.chart = new Chart(canvas, {
       type: 'line',
       data: {
-        labels: [],
+        labels: [hours + " : " + minutes, hours + 1 + " : " + minutes, hours + 2 + " : " + minutes, hours + 3 + " : " + minutes],
         datasets: [
           {
             label: 'Temperature',
-            data: [],
+            data: [10,15,20,25,30],
             borderColor: 'rgb(75, 192, 192)',
             fill: false,
           },
