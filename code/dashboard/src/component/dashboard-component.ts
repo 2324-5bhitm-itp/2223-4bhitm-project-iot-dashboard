@@ -1,8 +1,11 @@
 import { html, render } from "lit-html"
+import Chart from 'chart.js/auto';
 import { DashboardModel, Sensor, store } from "../model"
 import { filter, map } from "rxjs"
 import { styles } from "../styles/styles"
 import { mqttConfig } from "../mqtt"
+
+
 
 import "./connection-icon"
 import { unitOfSensorName } from "../model/dashboard-model"
@@ -11,7 +14,7 @@ import { SvgComponent } from "./svg-component";
 import { ReportComponent } from "./report-component";
 
 import defaultCallbacks from "chart.js/dist/plugins/plugin.tooltip";
-import {produce} from "immer";
+import { produce } from "immer";
 
 
 interface BoxViewModel {
@@ -20,54 +23,55 @@ interface BoxViewModel {
 }
 
 interface AppComponentViewModel {
-    boxes: BoxViewModel[],
-    selectedFloor: string
+  boxes: BoxViewModel[],
+  selectedFloor: string
 }
 
 class DashboardComponent extends HTMLElement {
-    private noActiveBoxesDisplayed: boolean;
-    constructor() {
-        super()
-        this.attachShadow({ mode: "open" })
-        this.noActiveBoxesDisplayed = false; // Flag to track whether the message has been displayed
-    }
+  private noActiveBoxesDisplayed: boolean;
+  constructor() {
+    super()
+    this.attachShadow({ mode: "open" })
+    this.noActiveBoxesDisplayed = false; // Flag to track whether the message has been displayed
+  }
 
-    connectedCallback() {
-        store
-            .pipe(
-                filter(dashboard => !!dashboard),
-                filter(model => !!model.boxes),
-                map(toViewModel)
-            )
-            .subscribe(vm => this.render(vm))
-    }
+  connectedCallback() {
+    store
+      .pipe(
+        filter(dashboard => !!dashboard),
+        filter(model => !!model.boxes),
+        map(toViewModel)
+      )
+      .subscribe(vm => this.render(vm))
+  }
 
-    setFloorName(floorName: string) {
-        const nextState = produce(store.getValue(), model => {
-            model.selectedFloor = floorName
-        })
-        store.next(nextState)
-    }
+  setFloorName(floorName: string) {
+    const nextState = produce(store.getValue(), model => {
+      model.selectedFloor = floorName
+    })
+    store.next(nextState)
+  }
 
-    render(vm: AppComponentViewModel) {
-        const hasActiveBoxes = vm.boxes.some(box => box.name.toUpperCase().startsWith(vm.selectedFloor));
+  render(vm: AppComponentViewModel) {
+    const hasActiveBoxes = vm.boxes.some(box => box.name.toUpperCase().startsWith(vm.selectedFloor));
 
-        if (hasActiveBoxes) {
-            this.noActiveBoxesDisplayed = false;
-            render(template(vm), this.shadowRoot);
-        } else if (!this.noActiveBoxesDisplayed) {
-            this.noActiveBoxesDisplayed = true;
-            render(html`<h1 style="color: white; text-align: center; padding: 2vw">No active boxes found...</h1>`, this.shadowRoot);
-        }
+    if (hasActiveBoxes) {
+      this.noActiveBoxesDisplayed = false;
+      render(template(vm), this.shadowRoot);
+    } else if (!this.noActiveBoxesDisplayed) {
+      this.noActiveBoxesDisplayed = true;
+      render(html`<h1 style="color: white; text-align: center; padding: 2vw">No active boxes found...</h1>`, this.shadowRoot);
     }
+  }
 }
+
 
 customElements.define("dashboard-component", DashboardComponent)
 
 function toViewModel(model: DashboardModel) {
   const vm: AppComponentViewModel = {
-        boxes: [],
-      selectedFloor: model.selectedFloor
+    boxes: [],
+    selectedFloor: model.selectedFloor
   }
   model.boxes.forEach((box, name) => {
     const boxModel: BoxViewModel = {
@@ -89,12 +93,67 @@ function boxTemplate(box: BoxViewModel) {
   var splitMqttName = box.name.split("/");
 
   const rows = box.sensors.map((sensor) => {
+
+    function getRSSIDescription(value) {
+      if (value >= -50) return "Good";
+      if (value >= -70) return "Normal";
+      else return "Bad";
+    }
+
+    function getNoiseDescription(value) {
+      if (value <= 320) return "Quiet";
+      if (value <= 440) return "Moderate";
+      if (value <= 560) return "Busy";
+      if (value <= 680) return "Loud";
+      else return "Very loud";
+    }
+
+    function getPressureDescription(value) {
+      if (value > 1020) return "High";
+      if (value < 980)  return "Low";
+      else return "Normal";
+    }
+
+    if (sensor.name === "rssi") {
+      const rssiDescription = getRSSIDescription(sensor.value);
+      return html`
+          <tr>
+              <td>RSSI</td>
+              <td class="w3-right">${sensor.value} | ${rssiDescription} WIFI signal</td>
+          </tr>
+      `;
+    }
+    if (sensor.name === "noise") {
+      const noiseDescription = getNoiseDescription(sensor.value);
+      const sensorName = sensor.name;
+
+      return html`
+      <tr>
+        <td>Noise</td>
+        <td class="w3-right">
+          ${sensor.value} | ${noiseDescription}
+        </td>
+      </tr>
+    `;
+    }
+    if (sensor.name === "pressure") {
+      const pressureDescription = getPressureDescription(sensor.value);
+      return html`
+        <tr>
+          <td>Pressure</td>
+          <td class="w3-right">
+            ${sensor.value} ${pressureDescription} air Pressure
+          </td>
+        </tr>
+      `;
+    }
+
     function getColorSquare(valueString) {
       if (sensor.name !== "neopixel") return "";
       const digitArray = Array.from(valueString, (digit) => +digit * 255);
       const colorStyle = `rgb(${digitArray[0]}, ${digitArray[1]}, ${digitArray[2]})`;
 
-      if(colorStyle === 'rgb(255, 0, 0)') {
+      if (colorStyle === 'rgb(255, 0, 0)') {
         return html`
         <a>The air is low quality, you have to open the window!</a>
         <span style="font-size: xxx-large; color: ${colorStyle};">&#9632;</span>`
@@ -109,7 +168,7 @@ function boxTemplate(box: BoxViewModel) {
         <span style="font-size: xxx-large; color: ${colorStyle};">&#9632;</span>`
       }
 
-      
+
     }
 
     const unit = unitOfSensorName[sensor.name];
@@ -121,7 +180,7 @@ function boxTemplate(box: BoxViewModel) {
       chartElement.setAttribute('sensor-name', sensorName);
       // Pass the data as an attribute
       chartElement.setAttribute('sensor-value', sensor.value.toFixed(2));
-    
+
       return html`
       <tr>
         <td>Temperature</td>
