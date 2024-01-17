@@ -163,7 +163,7 @@ function boxTemplate(box: BoxViewModel) {
         <tr>
           <td>CO2</td>
           <td class="w3-right">
-            ${sensor.value} | ${co2Description} Co2 Level
+            ${sensor.value} | ${co2Description} CO2 Level
           </td>
         </tr>
       `;
