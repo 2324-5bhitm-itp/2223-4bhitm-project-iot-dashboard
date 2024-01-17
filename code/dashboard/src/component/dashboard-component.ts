@@ -114,6 +114,26 @@ function boxTemplate(box: BoxViewModel) {
       else return "Normal";
     }
 
+    function getHumidityDescription(value) {
+      if (value < 30) return "Dry";
+      if (value > 60) return "Humid";
+      else return "Comfortable Humid";
+    }
+
+    function getLuminosityDescription(value) {
+      if (value > 10000) return "Very High";
+      if (value > 5000) return "High";
+      if (value > 1000) return "Normal";
+      if (value > 500) return "Low";
+      else return "Very Low";
+    }
+
+    function getCO2Description(value) {
+      if (value < 600) return "Good";
+      if (value > 1500)  return "Poor";
+      else return "Normal";
+    }
+
     if (sensor.name === "rssi") {
       const rssiDescription = getRSSIDescription(sensor.value);
       return html`
@@ -136,13 +156,52 @@ function boxTemplate(box: BoxViewModel) {
       </tr>
     `;
     }
+
+    if (sensor.name === "co2") {
+      const co2Description = getCO2Description(sensor.value);
+      return html`
+        <tr>
+          <td>CO2</td>
+          <td class="w3-right">
+            ${sensor.value} | ${co2Description} Co2 Level
+          </td>
+        </tr>
+      `;
+    }
+  
+
+    if (sensor.name === "humidity") {
+      const humidityDescription = getHumidityDescription(sensor.value);
+      return html`
+        <tr>
+          <td>Humidity</td>
+          <td class="w3-right">
+            ${sensor.value} | ${humidityDescription}
+            <!-- Add a chart element here if needed -->
+          </td>
+        </tr>
+      `;
+    }
+
+    if (sensor.name === "luminosity") {
+      const luminosityDescription = getLuminosityDescription(sensor.value);
+      return html`
+        <tr>
+          <td>Luminosity</td>
+          <td class="w3-right">
+            ${sensor.value} | ${luminosityDescription} Air
+          </td>
+        </tr>
+      `;
+    }
+
     if (sensor.name === "pressure") {
       const pressureDescription = getPressureDescription(sensor.value);
       return html`
         <tr>
           <td>Pressure</td>
           <td class="w3-right">
-            ${sensor.value} ${pressureDescription} air Pressure
+            ${sensor.value} | ${pressureDescription} air Pressure
           </td>
         </tr>
       `;
