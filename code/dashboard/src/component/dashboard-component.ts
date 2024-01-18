@@ -245,7 +245,6 @@ function boxTemplate(box: BoxViewModel) {
         <td>Temperature</td>
         <td class="w3-right">
           ${Number(sensor.value.toFixed(2))} ${unit}
-          ${chartElement}
         </td>
       </tr>`;
     }
