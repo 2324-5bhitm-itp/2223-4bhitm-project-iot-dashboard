@@ -117,7 +117,7 @@ function boxTemplate(box: BoxViewModel) {
     function getHumidityDescription(value) {
       if (value < 30) return "Dry";
       if (value > 60) return "Humid";
-      else return "Comfortable Humid";
+      else return "Comfortable Humidity";
     }
 
     function getLuminosityDescription(value) {
