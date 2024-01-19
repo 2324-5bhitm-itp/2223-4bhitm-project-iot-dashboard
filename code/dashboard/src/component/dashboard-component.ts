@@ -243,7 +243,7 @@ function boxTemplate(box: BoxViewModel) {
       return html`
       <tr>
         <td>Temperature</td>
-        <td >
+        <td>
           ${Number(sensor.value.toFixed(2))} ${unit}
         </td>
       </tr>`;
