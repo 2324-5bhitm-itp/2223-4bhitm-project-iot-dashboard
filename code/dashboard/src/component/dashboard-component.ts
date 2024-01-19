@@ -243,7 +243,7 @@ function boxTemplate(box: BoxViewModel) {
       return html`
       <tr>
         <td>Temperature</td>
-        <td class="w3-right">
+        <td >
           ${Number(sensor.value.toFixed(2))} ${unit}
         </td>
       </tr>`;
@@ -379,27 +379,5 @@ function template(vm: AppComponentViewModel) {
               ${boxes}
           </div>
       </section>
-      <!--${reportElement}-->
   `
 }
-
-// Abbildung eines SVGs
-/*async function fetchSvg() {
-  const response = await fetch("../../resources/svg/first-floor.svg");
-  const svgText = await response.text();
-  return svgText;
-}
-
-async function renderSvg() {
-  const svgContent = await fetchSvg();
-
-  const svgDocument = new DOMParser().parseFromString(svgContent, "image/svg+xml");
-  const svgElement = svgDocument.documentElement;
-
-  svgElement.setAttribute("width", "700");
-  svgElement.setAttribute("height", "700");
-
-  render(html`${svgElement}`, document.body);
-}
-
-renderSvg();*/
