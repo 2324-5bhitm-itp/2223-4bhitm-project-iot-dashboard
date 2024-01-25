@@ -177,7 +177,6 @@ function boxTemplate(box: BoxViewModel) {
           <td>Humidity</td>
           <td class="w3-right">
             ${sensor.value} | ${humidityDescription}
-            <!-- Add a chart element here if needed -->
           </td>
         </tr>
       `;
@@ -243,7 +242,7 @@ function boxTemplate(box: BoxViewModel) {
       return html`
       <tr>
         <td>Temperature</td>
-        <td>
+        <td class="w3-right">
           ${Number(sensor.value.toFixed(2))} ${unit}
         </td>
       </tr>`;
